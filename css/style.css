@@ -536,7 +536,7 @@ a {
   cursor: pointer;
   text-transform: uppercase;
   float: none;
-  min-height: 150px;
+/*min-height: 150px;*/
   margin-left: -12px;
   text-align: center;
   display: -webkit-box;
@@ -1643,6 +1643,7 @@ pre .css ~ * .id {
 .footer-right {
   float: right;
 }
+.share_jia,
 .share {
   padding: 0px 75px 30px 40px;
   margin-bottom: 15px;

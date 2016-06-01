@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>等我六级跳大</title>
+  <title>看我六级跳大</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Java、数据库，技术爱好者，change the code,change the myself">
+  <meta name="description" content="Java，Python，技术爱好者，change the code,change myself">
 <meta property="og:type" content="website">
-<meta property="og:title" content="等我六级跳大">
+<meta property="og:title" content="看我六级跳大">
 <meta property="og:url" content="http://todoright.com/index.html">
-<meta property="og:site_name" content="等我六级跳大">
-<meta property="og:description" content="Java、数据库，技术爱好者，change the code,change the myself">
+<meta property="og:site_name" content="看我六级跳大">
+<meta property="og:description" content="Java，Python，技术爱好者，change the code,change myself">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="等我六级跳大">
-<meta name="twitter:description" content="Java、数据库，技术爱好者，change the code,change the myself">
+<meta name="twitter:title" content="看我六级跳大">
+<meta name="twitter:description" content="Java，Python，技术爱好者，change the code,change myself">
   
-    <link rel="alternative" href="/atom.xml" title="等我六级跳大" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="看我六级跳大" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -37,11 +37,11 @@
 		</a>
 
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Jamie Xu</a></h1>
+		  <h1 class="header-author"><a href="/">JamieXu</a></h1>
 		</hgroup>
 
 		
-		<p class="header-subtitle">但行好事</p>
+		<p class="header-subtitle">但行好事，莫问前程</p>
 		
 
 		
@@ -111,7 +111,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						
+						<a href="/tags/技术，Java，IO/" style="font-size: 10px;">技术，Java，IO</a>
 					</div>
 				</section>
 				
@@ -135,7 +135,7 @@
       <nav id="mobile-nav">
   	<div class="overlay">
   		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">Jamie Xu</h1>
+  		<h1 class="header-author js-mobile-header hide">JamieXu</h1>
   	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
@@ -145,10 +145,10 @@
 			
 			</div>
 			<hgroup>
-			  <h1 class="header-author">Jamie Xu</h1>
+			  <h1 class="header-author">JamieXu</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">但行好事</p>
+			<p class="header-subtitle">但行好事，莫问前程</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -181,11 +181,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-this2" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JavaIO 流知识笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/29/this2/" class="article-date">
-  	<time datetime="2016-05-29T08:38:22.000Z" itemprop="datePublished">2016-05-29</time>
+      <a href="/2016/06/01/JavaIO 流知识笔记/" class="article-date">
+  	<time datetime="2016-06-01T07:03:52.000Z" itemprop="datePublished">2016-06-01</time>
 </a>
     </div>
   
@@ -198,7 +198,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/29/this2/">this2</a>
+      <a class="article-title" href="/2016/06/01/JavaIO 流知识笔记/">Java IO流知识笔记</a>
     </h1>
   
 
@@ -207,119 +207,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="1-流的分类"><a href="#1-流的分类" class="headerlink" title="1 流的分类"></a>1 流的分类</h2><p>IO流主要用于对计算机的硬板、内存、键盘等处理设备上的数据进行操作，说的通俗一点就是用来对文件内容进行操作的。 </p>
+<p>按流的方向分为：输入流和输出流。<br>按数据类型分为：字节流和字符流。<br>按流的功能分为：节点流和处理流。  </p>
+<p><strong>字符流和字节流的区别：</strong><br>首先熟悉一些概念：<br><strong>字节：</strong>也就是Byte，它是通过网络传输信息或信息存储的单位。字节是计算机信息技术用于计量存储容量和传输容量的一种计量单位，1个字节等于8位二进制，它是一个8位的二进制数，是一个很具体的存储空间。<br><strong>字符：</strong> 字符是指计算机中使用的字母、数字、字和符号，是人们使用的记号，抽象意义上的一个符号。包括：<br>1、2、3、A、B、C、~！·#￥%……—<em>（）——+<br>等等。<br><em>*首先程序中的数据都是以流的形式保存的，而流中保存实际上都是字节文件。</em></em><br>字符、字节流的主要类框架：<br>以上只包含了主要用到的一些类，不常用的没有列举。<br>
       
     </div>
     
     <div class="article-info article-info-index">
       
       
-      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术，Java，IO/">技术，Java，IO</a></li></ul>
+	</div>
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-this" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/29/this/" class="article-date">
-  	<time datetime="2016-05-29T08:37:26.000Z" itemprop="datePublished">2016-05-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/29/this/">this</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
       
 
       
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/29/test/" class="article-date">
-  	<time datetime="2016-05-29T08:32:29.000Z" itemprop="datePublished">2016-05-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/29/test/">test</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
+        <p class="article-more-link">
+          <a  href="/2016/06/01/JavaIO 流知识笔记/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -404,7 +310,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 Jamie Xu
+    		&copy; 2016 JamieXu
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
