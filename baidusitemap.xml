@@ -4,8 +4,8 @@
 
     
   <url>
-    <loc>http://todoright.com/2016/06/01/JavaIO%20%E6%B5%81%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2016-06-01T07:55:01.000Z</lastmod>
+    <loc>http://todoright.com/2016/06/01/JavaIO%E6%B5%81%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2016-06-03T02:51:20.000Z</lastmod>
     <data>
         <display>
         <title>Java IO流知识笔记</title>
@@ -16,6 +16,25 @@
         <tag>Java</tag>
          
         <tag>IO</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://todoright.com/2016/06/03/Java%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2016-06-03T02:47:16.000Z</lastmod>
+    <data>
+        <display>
+        <title>Java网络通信编程学习</title>
+        <pubTime>2016-06-03T02:05:38.000Z</pubTime>
+        
+        <tag>技术</tag>
+         
+        <tag>Java网络编程</tag>
          
          
            
