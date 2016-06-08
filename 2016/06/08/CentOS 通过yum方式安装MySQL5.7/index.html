@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>CentOS 通过yum方式安装MySQL5.7 | 看我六级跳大</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#x4E00;. &amp;#x5378;&amp;#x8F7D;&amp;#x81EA;&amp;#x5E26;&amp;#x6216;&amp;#x65E7;&amp;#x7248;&amp;#x672C;&amp;#x5148;&amp;#x68C0;&amp;#x67E5;&amp;#x7CFB;&amp;#x7EDF;&amp;#x662F;&amp;#x5426;&amp;#x81EA;&amp;#x5E26;&amp;#x6216;&amp;#x8005;&amp;#x65E7;&amp;#x7248;&amp;#x672C;&amp;#x7684;MySQL&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS 通过yum方式安装MySQL5.7">
+<meta property="og:url" content="http://todoright.com/2016/06/08/CentOS 通过yum方式安装MySQL5.7/index.html">
+<meta property="og:site_name" content="看我六级跳大">
+<meta property="og:description" content="&amp;#x4E00;. &amp;#x5378;&amp;#x8F7D;&amp;#x81EA;&amp;#x5E26;&amp;#x6216;&amp;#x65E7;&amp;#x7248;&amp;#x672C;&amp;#x5148;&amp;#x68C0;&amp;#x67E5;&amp;#x7CFB;&amp;#x7EDF;&amp;#x662F;&amp;#x5426;&amp;#x81EA;&amp;#x5E26;&amp;#x6216;&amp;#x8005;&amp;#x65E7;&amp;#x7248;&amp;#x672C;&amp;#x7684;MySQL&amp;">
+<meta property="og:updated_time" content="2016-06-08T10:22:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CentOS 通过yum方式安装MySQL5.7">
+<meta name="twitter:description" content="&amp;#x4E00;. &amp;#x5378;&amp;#x8F7D;&amp;#x81EA;&amp;#x5E26;&amp;#x6216;&amp;#x65E7;&amp;#x7248;&amp;#x672C;&amp;#x5148;&amp;#x68C0;&amp;#x67E5;&amp;#x7CFB;&amp;#x7EDF;&amp;#x662F;&amp;#x5426;&amp;#x81EA;&amp;#x5E26;&amp;#x6216;&amp;#x8005;&amp;#x65E7;&amp;#x7248;&amp;#x672C;&amp;#x7684;MySQL&amp;">
+  
+    <link rel="alternative" href="/atom.xml" title="看我六级跳大" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/headico.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">JamieXu</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">但行好事，莫问前程</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术">技术</a></li>
+				        
+							<li><a href="/tags/人文">人文</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/jueduizone" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/kelexu" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Java网络编程/" style="font-size: 10px;">Java网络编程</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/ngrok/" style="font-size: 10px;">ngrok</a> <a href="/tags/技术/" style="font-size: 20px;">技术</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">长得像70后的90后,创业中,自我感觉良好,向全栈目标路线打怪升级中...联系请邮件jueduizone@gmail.com</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">JamieXu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/headico.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">JamieXu</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">但行好事，莫问前程</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术">技术</a></li>
+		        
+					<li><a href="/tags/人文">人文</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/jueduizone" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/kelexu" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-CentOS 通过yum方式安装MySQL5.7" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/08/CentOS 通过yum方式安装MySQL5.7/" class="article-date">
+  	<time datetime="2016-06-08T09:59:47.000Z" itemprop="datePublished">2016-06-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CentOS 通过yum方式安装MySQL5.7
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="&#x4E00;-&#x5378;&#x8F7D;&#x81EA;&#x5E26;&#x6216;&#x65E7;&#x7248;&#x672C;"><a href="#&#x4E00;-&#x5378;&#x8F7D;&#x81EA;&#x5E26;&#x6216;&#x65E7;&#x7248;&#x672C;" class="headerlink" title="&#x4E00;. &#x5378;&#x8F7D;&#x81EA;&#x5E26;&#x6216;&#x65E7;&#x7248;&#x672C;"></a>&#x4E00;. &#x5378;&#x8F7D;&#x81EA;&#x5E26;&#x6216;&#x65E7;&#x7248;&#x672C;</h2><p>&#x5148;&#x68C0;&#x67E5;&#x7CFB;&#x7EDF;&#x662F;&#x5426;&#x81EA;&#x5E26;&#x6216;&#x8005;&#x65E7;&#x7248;&#x672C;&#x7684;MySQL&#xFF0C;&#x5982;&#x679C;&#x5B58;&#x5728;&#x5219;&#x5148;&#x5220;&#x9664;&#x5B83;&#x548C;&#x5B83;&#x7684;&#x4F9D;&#x8D56;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># &#x68C0;&#x67E5;</span><br><span class="line">yum list list installed | grep mysql</span><br><span class="line"># &#x5220;&#x9664;</span><br><span class="line">yum -y remove mysql-libs.x86_64</span><br></pre></td></tr></table></figure>
+<h2 id="&#x4E8C;-&#x5B89;&#x88C5;&#x6700;&#x65B0;&#x7248;&#x672C;"><a href="#&#x4E8C;-&#x5B89;&#x88C5;&#x6700;&#x65B0;&#x7248;&#x672C;" class="headerlink" title="&#x4E8C;. &#x5B89;&#x88C5;&#x6700;&#x65B0;&#x7248;&#x672C;"></a>&#x4E8C;. &#x5B89;&#x88C5;&#x6700;&#x65B0;&#x7248;&#x672C;</h2><p><strong>1. &#x7ED9;CentOS&#x6DFB;&#x52A0;rpm&#x6E90;&#xFF1A;</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># &#x83B7;&#x53D6;&#x6700;&#x7684;rpm&#x6E90;</span><br><span class="line">wget dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm</span><br><span class="line"># &#x5B89;&#x88C5;rpm&#x6E90;</span><br><span class="line">yum localinstall mysql-community-release-el6-5.noarch.rpm</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p><strong>2. &#x7ED9;yum&#x9009;&#x62E9;&#x6700;&#x65B0;&#x7684;rpm&#x6E90;</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yum repolist all | grep mysql</span><br><span class="line"># &#x5173;&#x95ED;5.5&#x548C;5.6&#x7248;&#x672C;</span><br><span class="line">yum-config-manager --disable mysql55-community</span><br><span class="line">yum-config-manager --disable mysql56-community</span><br><span class="line"># &#x5F00;&#x542F;5.7&#x7248;&#x672C;</span><br><span class="line">yum-config-manager --enable mysql57-community-dmr</span><br><span class="line">yum repolist enabled | grep mysql</span><br></pre></td></tr></table></figure>
+<p><strong>3. &#x5B89;&#x88C5;</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install mysql-community-server</span><br></pre></td></tr></table></figure>
+<p>&#x6700;&#x540E;&#x5982;&#x679C;&#x770B;&#x89C1;Complete!&#x8868;&#x793A;&#x5B89;&#x88C5;&#x5B8C;&#x6210;&#x3002;</p>
+<p><strong>4. &#x542F;&#x52A8;&#x670D;&#x52A1;&#x5E76;&#x8BBE;&#x7F6E;&#x5F00;&#x673A;&#x542F;&#x52A8;</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service mysqld start</span><br><span class="line">chkconfig --list | grep mysqld</span><br><span class="line">chkconfig mysqld on</span><br></pre></td></tr></table></figure>
+<h2 id="&#x4E09;-&#x5B89;&#x5168;&#x8BBE;&#x7F6E;"><a href="#&#x4E09;-&#x5B89;&#x5168;&#x8BBE;&#x7F6E;" class="headerlink" title="&#x4E09;. &#x5B89;&#x5168;&#x8BBE;&#x7F6E;"></a>&#x4E09;. &#x5B89;&#x5168;&#x8BBE;&#x7F6E;</h2><p>&#x5B89;&#x88C5;&#x5B8C;&#x540E;&#x4E00;&#x822C;&#x8981;&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x8FDB;&#x5165;MySQL&#x5B89;&#x5168;&#x914D;&#x7F6E;&#x5411;&#x5BFC;&#xFF0C;&#x8FDB;&#x884C;&#x4E00;&#x4E9B;&#x5B89;&#x5168;&#x8BBE;&#x7F6E;:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql_secure_installation</span><br></pre></td></tr></table></figure>
+<p>&#x5982;&#x679C;&#x6210;&#x529F;&#x4E86;&#xFF0C;&#x5E94;&#x8BE5;&#x4F1A;&#x8FDB;&#x5165;&#x4E0B;&#x9762;&#x7684;&#x754C;&#x9762;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">[root@server1 ~]# mysql_secure_installation</span><br><span class="line">NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MySQL</span><br><span class="line">SERVERS IN PRODUCTION USE! PLEASE READ EACH STEP CAREFULLY!</span><br><span class="line">In order to log into MySQL to secure it, we&apos;ll need the current</span><br><span class="line">password for the root user. If you&apos;ve just installed MySQL, and</span><br><span class="line">you haven&apos;t set the root password yet, the password will be blank,</span><br><span class="line">so you should just press enter here.</span><br><span class="line">Enter current password for root (enter for none):&lt;&#x2013;&#x521D;&#x6B21;&#x8FD0;&#x884C;&#x76F4;&#x63A5;&#x56DE;&#x8F66;</span><br><span class="line">OK, successfully used password, moving on&#x2026;</span><br><span class="line">Setting the root password ensures that nobody can log into the MySQL</span><br><span class="line">root user without the proper authorisation.</span><br><span class="line">Set root password? [Y/n] &lt;&#x2013; &#x662F;&#x5426;&#x8BBE;&#x7F6E;root&#x7528;&#x6237;&#x5BC6;&#x7801;&#xFF0C;&#x8F93;&#x5165;y&#x5E76;&#x56DE;&#x8F66;&#x6216;&#x76F4;&#x63A5;&#x56DE;&#x8F66;</span><br><span class="line">New password: &lt;&#x2013; &#x8BBE;&#x7F6E;root&#x7528;&#x6237;&#x7684;&#x5BC6;&#x7801;</span><br><span class="line">Re-enter new password: &lt;&#x2013; &#x518D;&#x8F93;&#x5165;&#x4E00;&#x6B21;&#x4F60;&#x8BBE;&#x7F6E;&#x7684;&#x5BC6;&#x7801;</span><br><span class="line">Password updated successfully!</span><br><span class="line">Reloading privilege tables..</span><br><span class="line">&#x2026; Success!</span><br><span class="line">By default, a MySQL installation has an anonymous user, allowing anyone</span><br><span class="line">to log into MySQL without having to have a user account created for</span><br><span class="line">them. This is intended only for testing, and to make the installation</span><br><span class="line">go a bit smoother. You should remove them before moving into a</span><br><span class="line">production environment.</span><br><span class="line">Remove anonymous users? [Y/n] &lt;&#x2013; &#x662F;&#x5426;&#x5220;&#x9664;&#x533F;&#x540D;&#x7528;&#x6237;,&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x5EFA;&#x8BAE;&#x5220;&#x9664;&#xFF0C;&#x6240;&#x4EE5;&#x76F4;&#x63A5;&#x56DE;&#x8F66;</span><br><span class="line">&#x2026; Success!</span><br><span class="line">Normally, root should only be allowed to connect from &apos;localhost&apos;. This</span><br><span class="line">ensures that someone cannot guess at the root password from the network.</span><br><span class="line">Disallow root login remotely? [Y/n] &lt;&#x2013;&#x662F;&#x5426;&#x7981;&#x6B62;root&#x8FDC;&#x7A0B;&#x767B;&#x5F55;,&#x6839;&#x636E;&#x81EA;&#x5DF1;&#x7684;&#x9700;&#x6C42;&#x9009;&#x62E9;Y/n&#x5E76;&#x56DE;&#x8F66;,&#x5EFA;&#x8BAE;&#x7981;&#x6B62;</span><br><span class="line">&#x2026; Success!</span><br><span class="line">By default, MySQL comes with a database named &apos;test&apos; that anyone can</span><br><span class="line">access. This is also intended only for testing, and should be removed</span><br><span class="line">before moving into a production environment.</span><br><span class="line">Remove test database and access to it? [Y/n] &lt;&#x2013; &#x662F;&#x5426;&#x5220;&#x9664;test&#x6570;&#x636E;&#x5E93;,&#x76F4;&#x63A5;&#x56DE;&#x8F66;</span><br><span class="line">- Dropping test database&#x2026;</span><br><span class="line">&#x2026; Success!</span><br><span class="line">- Removing privileges on test database&#x2026;</span><br><span class="line">&#x2026; Success!</span><br><span class="line">Reloading the privilege tables will ensure that all changes made so far</span><br><span class="line">will take effect immediately.</span><br><span class="line">Reload privilege tables now? [Y/n] &lt;&#x2013; &#x662F;&#x5426;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x6743;&#x9650;&#x8868;&#xFF0C;&#x76F4;&#x63A5;&#x56DE;&#x8F66;</span><br><span class="line">&#x2026; Success!</span><br><span class="line">Cleaning up&#x2026;</span><br><span class="line">All done! If you&apos;ve completed all of the above steps, your MySQL</span><br><span class="line">installation should now be secure.</span><br><span class="line">Thanks for using MySQL!</span><br></pre></td></tr></table></figure>
+<p><strong>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x51FA;&#x73B0;&#x8FD9;&#x4E2A;&#x754C;&#x9762;&#xFF0C;&#x800C;&#x662F;&#x8981;&#x6C42;&#x8F93;&#x5165;root&#x5BC6;&#x7801;</strong>&#xFF0C;&#x5E76;&#x4E14;&#x8F93;&#x5165;&#x540E;&#x62A5;&#x9519;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 1045 (28000): Access denied for user &apos;root&apos;@&apos;localhost&apos; (using password: NO)</span><br></pre></td></tr></table></figure>
+<p>&#x5C31;&#x8981;&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x7684;&#x64CD;&#x4F5C;&#x5904;&#x7406;&#x4E86;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">service mysqld stop</span><br><span class="line"># &#x8FDB;&#x5165;&#x5B89;&#x5168;&#x6A21;&#x5F0F;</span><br><span class="line">mysqld_safe --user=mysql --skip-grant-tables --skip-networking &amp;</span><br><span class="line"># &#x65E0;&#x5BC6;&#x7801;&#x767B;&#x5F55;MySQL </span><br><span class="line">mysql -u root mysql</span><br><span class="line"># MySQL &#x754C;&#x9762;&#x4FEE;&#x6539;root&#x5BC6;&#x7801;&#x5E76;&#x5237;&#x65B0;&#x6743;&#x9650;</span><br><span class="line">UPDATE user SET authentication_string=PASSWORD(&apos;sqlroot321&apos;) where USER=&apos;root&apos;;</span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line">quit;</span><br><span class="line"># &#x542F;&#x52A8;&#x670D;&#x52A1;</span><br><span class="line">service mysqld start</span><br><span class="line"># &#x8FD9;&#x65F6;&#x5019;&#x5C31;&#x53EF;&#x4EE5;&#x7528;&#x4E0A;&#x9762;&#x8BBE;&#x7F6E;&#x7684;&#x5BC6;&#x7801;&#x8FDB;&#x884C;&#x5B89;&#x5168;&#x8BBE;&#x7F6E;&#x5411;&#x5BFC;&#x4E86;</span><br><span class="line">mysql_secure_installation</span><br></pre></td></tr></table></figure>
+<p><strong>&#x5F00;&#x59CB;&#x4F7F;&#x7528;</strong></p>
+<p>&#x5148;&#x767B;&#x5F55;,&#x7136;&#x540E;&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x5E76;&#x6307;&#x5B9A;UTF8&#x7F16;&#x7801;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE dbname DEFAULT CHARACTER SET utf8 COLLATE</span><br><span class="line">utf8_general_ci;</span><br></pre></td></tr></table></figure>
+<p>&#x521B;&#x5EFA;&#x7528;&#x6237;&#xFF0C;&#x5E76;&#x6388;&#x6743;&#x6240;&#x6709;&#x6743;&#x9650;&#x4F7F;&#x7528;&#x521A;&#x521A;&#x65B0;&#x5EFA;&#x7684;&#x6570;&#x636E;&#x5E93;&#xFF0C;@&#x2018;%&#x2019;&#x8868;&#x793A;&#x652F;&#x6301;&#x8FDC;&#x7A0B;&#x767B;&#x5F55;&#x3002;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on dbname.* to usr_name@&#x2018;%&#x2019; identified by</span><br><span class="line">&#x2018;password&#x2019;;</span><br></pre></td></tr></table></figure>
+<p>&#x67E5;&#x770B;&#x6240;&#x6709;&#x7684;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x5E76;&#x9009;&#x62E9;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x6570;&#x636E;&#x5E93;,&#x9009;&#x62E9;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x5EFA;&#x8868;&#x7B49;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">show databases;</span><br><span class="line">use dbname;</span><br></pre></td></tr></table></figure>
+<h2 id="&#x56DB;-&#x8FC1;&#x79FB;&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;&#x76EE;&#x5F55;"><a href="#&#x56DB;-&#x8FC1;&#x79FB;&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;&#x76EE;&#x5F55;" class="headerlink" title="&#x56DB;. &#x8FC1;&#x79FB;&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;&#x76EE;&#x5F55;"></a>&#x56DB;. &#x8FC1;&#x79FB;&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;&#x76EE;&#x5F55;</h2><p>&#x5148;&#x5173;&#x95ED;&#x670D;&#x52A1;&#xFF0C;&#x7136;&#x540E;&#x627E;&#x5230;&#x73B0;&#x6709;&#x7684;&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;&#x76EE;&#x5F55;(&#x6211;&#x8FD9;&#x91CC;&#x662F;/var/lib/mysql)&#xFF0C;&#x5E76;&#x590D;&#x5236;&#x5230;&#x60F3;&#x8981;&#x5B58;&#x50A8;&#x7684;&#x65B0;&#x76EE;&#x5F55;&#x4E0B;&#xFF08;&#x6211;&#x8FD9;&#x8FB9;&#x4F7F;&#x7528;&#x7684;&#x662F;/opt/mysqldata/&#xFF09;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service http stop;</span><br><span class="line"># &#x590D;&#x5236;&#x73B0;&#x6709;&#x76EE;&#x5F55;&#xFF0C;&#x4E00;&#x5B9A;&#x8981;&#x7528;a&#x53C2;&#x6570;&#xFF0C;&#x9632;&#x6B62;&#x6743;&#x9650;&#x4E0D;&#x5BF9;</span><br><span class="line">cd /var/lib</span><br><span class="line">cp -a mysql /opt/mysqldata/</span><br></pre></td></tr></table></figure>
+<p>&#x590D;&#x5236;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x4FEE;&#x6539;&#x76F8;&#x5173;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x4FEE;&#x6539;&#x524D;&#x6700;&#x597D;&#x90FD;&#x5148;&#x6700;&#x597D;&#x5907;&#x4EFD;:</p>
+<p><strong>&#x7B2C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF1A; /etc/my.cnf</strong></p>
+<p>&#x4FEE;&#x6539;&#x5176;&#x4E2D;&#x7684;datadir&#x4E3A;&#x6700;&#x65B0;&#x7684;&#x5B58;&#x50A8;&#x76EE;&#x5F55;&#x8DEF;&#x5F84;&#xFF0C;socket&#x8DEF;&#x5F84;&#x4FEE;&#x6539;&#x4E3A;&#x6700;&#x65B0;&#x76EE;&#x5F55;&#x4E0B;&#x7684;mysql.sock&#x6587;&#x4EF6;</p>
+<p><strong>&#x7B2C;&#x4E8C;&#x4E2A;&#x6587;&#x4EF6;&#xFF1A; /etc/init.d/mysqld</strong></p>
+<p>&#x4FEE;&#x6539;&#x5176;&#x4E2D;&#x7684;datadir&#x4E3A;&#x6700;&#x65B0;&#x7684;&#x5B58;&#x50A8;&#x76EE;&#x5F55;&#x8DEF;&#x5F84;&#xFF0C;&#x53C2;&#x8003;&#x4FEE;&#x6539;&#x5904;&#x4E0B;&#x9762;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get_mysql_option mysqld datadir &quot;/var/lib/mysql&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>&#x7B2C;&#x4E09;&#x4E2A;&#x6587;&#x4EF6;&#xFF1A; /usr/bin/mysqld_safe</strong></p>
+<p>&#x4FEE;&#x6539;&#x5176;&#x4E2D;&#x7684;DATADIR&#x4E3A;&#x6700;&#x65B0;&#x7684;&#x5B58;&#x50A8;&#x76EE;&#x5F55;&#x8DEF;&#x5F84;&#x3002;<br>&#x6700;&#x540E;&#x5EFA;&#x7ACB;mysql.sock&#x7684;&#x8F6F;&#x8FDE;&#x63A5;&#x5E76;&#x542F;&#x52A8;&#x670D;&#x52A1;:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ln -s /opt/mysqldata/mysql/mysql.sock&#xA0; /var/lib/mysql/mysql.sock;</span><br><span class="line"> </span><br><span class="line">service mysqld start;</span><br></pre></td></tr></table></figure>
+<p>&#x542F;&#x52A8;&#x6210;&#x529F;&#x8868;&#x793A;&#x8FC1;&#x79FB;&#x6210;&#x529F;&#x3002;</p>
+<p>END</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/06/07/CentOS6 搭建自己的ngrok服务/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CentOS6 搭建自己的ngrok服务</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="CentOS 通过yum方式安装MySQL5.7" data-title="CentOS 通过yum方式安装MySQL5.7" data-url="http://todoright.com/2016/06/08/CentOS 通过yum方式安装MySQL5.7/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"todoright"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 JamieXu
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
