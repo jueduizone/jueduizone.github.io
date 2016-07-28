@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://todoright.com/2016/06/08/CentOS 通过yum方式安装MySQL5.7/index.html">
 <meta property="og:site_name" content="看我六级跳大">
 <meta property="og:description" content="&amp;#x4E00;. &amp;#x5378;&amp;#x8F7D;&amp;#x81EA;&amp;#x5E26;&amp;#x6216;&amp;#x65E7;&amp;#x7248;&amp;#x672C;&amp;#x5148;&amp;#x68C0;&amp;#x67E5;&amp;#x7CFB;&amp;#x7EDF;&amp;#x662F;&amp;#x5426;&amp;#x81EA;&amp;#x5E26;&amp;#x6216;&amp;#x8005;&amp;#x65E7;&amp;#x7248;&amp;#x672C;&amp;#x7684;MySQL&amp;">
-<meta property="og:updated_time" content="2016-06-08T10:22:06.000Z">
+<meta property="og:updated_time" content="2016-06-21T01:25:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 通过yum方式安装MySQL5.7">
 <meta name="twitter:description" content="&amp;#x4E00;. &amp;#x5378;&amp;#x8F7D;&amp;#x81EA;&amp;#x5E26;&amp;#x6216;&amp;#x65E7;&amp;#x7248;&amp;#x672C;&amp;#x5148;&amp;#x68C0;&amp;#x67E5;&amp;#x7CFB;&amp;#x7EDF;&amp;#x662F;&amp;#x5426;&amp;#x81EA;&amp;#x5E26;&amp;#x6216;&amp;#x8005;&amp;#x65E7;&amp;#x7248;&amp;#x672C;&amp;#x7684;MySQL&amp;">
@@ -112,7 +112,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Java网络编程/" style="font-size: 10px;">Java网络编程</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/ngrok/" style="font-size: 10px;">ngrok</a> <a href="/tags/技术/" style="font-size: 20px;">技术</a>
+						<a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Java网络编程/" style="font-size: 10px;">Java网络编程</a> <a href="/tags/Jenkins/" style="font-size: 10px;">Jenkins</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/ngrok/" style="font-size: 10px;">ngrok</a> <a href="/tags/技术/" style="font-size: 20px;">技术</a> <a href="/tags/自动化持续集成/" style="font-size: 10px;">自动化持续集成</a>
 					</div>
 				</section>
 				
@@ -245,7 +245,7 @@
 <p>&#x67E5;&#x770B;&#x6240;&#x6709;&#x7684;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x5E76;&#x9009;&#x62E9;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x6570;&#x636E;&#x5E93;,&#x9009;&#x62E9;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x5EFA;&#x8868;&#x7B49;&#x64CD;&#x4F5C;&#xFF1A;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">show databases;</span><br><span class="line">use dbname;</span><br></pre></td></tr></table></figure>
 <h2 id="&#x56DB;-&#x8FC1;&#x79FB;&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;&#x76EE;&#x5F55;"><a href="#&#x56DB;-&#x8FC1;&#x79FB;&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;&#x76EE;&#x5F55;" class="headerlink" title="&#x56DB;. &#x8FC1;&#x79FB;&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;&#x76EE;&#x5F55;"></a>&#x56DB;. &#x8FC1;&#x79FB;&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;&#x76EE;&#x5F55;</h2><p>&#x5148;&#x5173;&#x95ED;&#x670D;&#x52A1;&#xFF0C;&#x7136;&#x540E;&#x627E;&#x5230;&#x73B0;&#x6709;&#x7684;&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;&#x76EE;&#x5F55;(&#x6211;&#x8FD9;&#x91CC;&#x662F;/var/lib/mysql)&#xFF0C;&#x5E76;&#x590D;&#x5236;&#x5230;&#x60F3;&#x8981;&#x5B58;&#x50A8;&#x7684;&#x65B0;&#x76EE;&#x5F55;&#x4E0B;&#xFF08;&#x6211;&#x8FD9;&#x8FB9;&#x4F7F;&#x7528;&#x7684;&#x662F;/opt/mysqldata/&#xFF09;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service http stop;</span><br><span class="line"># &#x590D;&#x5236;&#x73B0;&#x6709;&#x76EE;&#x5F55;&#xFF0C;&#x4E00;&#x5B9A;&#x8981;&#x7528;a&#x53C2;&#x6570;&#xFF0C;&#x9632;&#x6B62;&#x6743;&#x9650;&#x4E0D;&#x5BF9;</span><br><span class="line">cd /var/lib</span><br><span class="line">cp -a mysql /opt/mysqldata/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service mysqld stop;</span><br><span class="line"># &#x590D;&#x5236;&#x73B0;&#x6709;&#x76EE;&#x5F55;&#xFF0C;&#x4E00;&#x5B9A;&#x8981;&#x7528;a&#x53C2;&#x6570;&#xFF0C;&#x9632;&#x6B62;&#x6743;&#x9650;&#x4E0D;&#x5BF9;</span><br><span class="line">cd /var/lib</span><br><span class="line">cp -a mysql /opt/mysqldata/</span><br></pre></td></tr></table></figure>
 <p>&#x590D;&#x5236;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x4FEE;&#x6539;&#x76F8;&#x5173;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x4FEE;&#x6539;&#x524D;&#x6700;&#x597D;&#x90FD;&#x5148;&#x6700;&#x597D;&#x5907;&#x4EFD;:</p>
 <p><strong>&#x7B2C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF1A; /etc/my.cnf</strong></p>
 <p>&#x4FEE;&#x6539;&#x5176;&#x4E2D;&#x7684;datadir&#x4E3A;&#x6700;&#x65B0;&#x7684;&#x5B58;&#x50A8;&#x76EE;&#x5F55;&#x8DEF;&#x5F84;&#xFF0C;socket&#x8DEF;&#x5F84;&#x4FEE;&#x6539;&#x4E3A;&#x6700;&#x65B0;&#x76EE;&#x5F55;&#x4E0B;&#x7684;mysql.sock&#x6587;&#x4EF6;</p>
@@ -265,6 +265,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/07/28/Maven-SVN-Tomcat-Jenkins自动化集成入门/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Maven+SVN+Tomcat+Jenkins自动化集成入门
+        
+      </div>
+    </a>
   
   
     <a href="/2016/06/07/CentOS6 搭建自己的ngrok服务/" id="article-nav-older" class="article-nav-link-wrap">
