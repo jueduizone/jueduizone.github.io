@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Jenkins基础使用进阶（持续更新） | 看我六级跳大</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#x672C;&amp;#x6587;&amp;#x4E3B;&amp;#x8981;&amp;#x8BB0;&amp;#x5F55;&amp;#x5728;&amp;#x4F7F;&amp;#x7528;Jenkins&amp;#x7684;&amp;#x5DE5;&amp;#x4F5C;&amp;#x4E2D;&amp;#x9047;&amp;#x5230;&amp;#x7684;&amp;#x4E00;&amp;#x4E9B;&amp;#x95EE;&amp;#x9898;&amp;#x6216;&amp;#x8005;&amp;#x9700;&amp;#x6C42;&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jenkins基础使用进阶（持续更新）">
+<meta property="og:url" content="http://todoright.com/2016/08/03/Jenkins基础使用进阶（持续更新）/index.html">
+<meta property="og:site_name" content="看我六级跳大">
+<meta property="og:description" content="&amp;#x672C;&amp;#x6587;&amp;#x4E3B;&amp;#x8981;&amp;#x8BB0;&amp;#x5F55;&amp;#x5728;&amp;#x4F7F;&amp;#x7528;Jenkins&amp;#x7684;&amp;#x5DE5;&amp;#x4F5C;&amp;#x4E2D;&amp;#x9047;&amp;#x5230;&amp;#x7684;&amp;#x4E00;&amp;#x4E9B;&amp;#x95EE;&amp;#x9898;&amp;#x6216;&amp;#x8005;&amp;#x9700;&amp;#x6C42;&amp;">
+<meta property="og:image" content="http://pic.todoright.com/QQ20160802-0.png">
+<meta property="og:image" content="http://pic.todoright.com/QQ20160802-1.png">
+<meta property="og:image" content="http://pic.todoright.com/QQ20160802-2.png">
+<meta property="og:image" content="http://pic.todoright.com/QQ20160802-3.png">
+<meta property="og:image" content="http://pic.todoright.com/QQ20160802-5.png">
+<meta property="og:image" content="http://pic.todoright.com/QQ20160802-6.png">
+<meta property="og:image" content="http://pic.todoright.com/QQ20160802-7.png">
+<meta property="og:image" content="http://pic.todoright.com/QQ20160802-9.png">
+<meta property="og:image" content="http://pic.todoright.com/QQ20160802-10.png">
+<meta property="og:updated_time" content="2016-08-03T01:52:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jenkins基础使用进阶（持续更新）">
+<meta name="twitter:description" content="&amp;#x672C;&amp;#x6587;&amp;#x4E3B;&amp;#x8981;&amp;#x8BB0;&amp;#x5F55;&amp;#x5728;&amp;#x4F7F;&amp;#x7528;Jenkins&amp;#x7684;&amp;#x5DE5;&amp;#x4F5C;&amp;#x4E2D;&amp;#x9047;&amp;#x5230;&amp;#x7684;&amp;#x4E00;&amp;#x4E9B;&amp;#x95EE;&amp;#x9898;&amp;#x6216;&amp;#x8005;&amp;#x9700;&amp;#x6C42;&amp;">
+<meta name="twitter:image" content="http://pic.todoright.com/QQ20160802-0.png">
+  
+    <link rel="alternative" href="/atom.xml" title="看我六级跳大" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/headico.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">JamieXu</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">但行好事，莫问前程</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术">技术</a></li>
+				        
+							<li><a href="/tags/人文">人文</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/jueduizone" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/kelexu" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Java网络编程/" style="font-size: 10px;">Java网络编程</a> <a href="/tags/Jenkins/" style="font-size: 15px;">Jenkins</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/ngrok/" style="font-size: 10px;">ngrok</a> <a href="/tags/技术/" style="font-size: 20px;">技术</a> <a href="/tags/自动化持续集成/" style="font-size: 10px;">自动化持续集成</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">长得像70后的90后,创业中,自我感觉良好,向全栈目标路线打怪升级中...联系请邮件jueduizone@gmail.com</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">JamieXu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/headico.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">JamieXu</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">但行好事，莫问前程</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术">技术</a></li>
+		        
+					<li><a href="/tags/人文">人文</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/jueduizone" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/kelexu" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Jenkins基础使用进阶（持续更新）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/03/Jenkins基础使用进阶（持续更新）/" class="article-date">
+  	<time datetime="2016-08-03T01:26:12.000Z" itemprop="datePublished">2016-08-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Jenkins基础使用进阶（持续更新）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jenkins/">Jenkins</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#x672C;&#x6587;&#x4E3B;&#x8981;&#x8BB0;&#x5F55;&#x5728;&#x4F7F;&#x7528;Jenkins&#x7684;&#x5DE5;&#x4F5C;&#x4E2D;&#x9047;&#x5230;&#x7684;&#x4E00;&#x4E9B;&#x95EE;&#x9898;&#x6216;&#x8005;&#x9700;&#x6C42;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x76F8;&#x5E94;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF08;&#x5168;&#x90E8;&#x6D4B;&#x8BD5;&#x901A;&#x8FC7;&#xFF09;&#xFF0C;&#x56E0;&#x4E3A;&#x662F;&#x521A;&#x521A;&#x5B66;&#x4E60;&#x4F7F;&#x7528;Jenkins&#xFF0C;&#x6709;&#x4E9B;&#x95EE;&#x9898;&#x5728;&#x7F51;&#x4E0A;&#x5E76;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x5408;&#x9002;&#x81EA;&#x5DF1;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF0C;&#x662F;&#x81EA;&#x5DF1;&#x63A2;&#x7D22;&#x51FA;&#x6765;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x80FD;&#x5E76;&#x4E0D;&#x662F;&#x5F88;&#x597D;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x4F46;&#x81F3;&#x5C11;&#x80FD;&#x89E3;&#x51B3;&#x5F53;&#x4E0B;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5982;&#x679C;&#x5927;&#x5BB6;&#x6709;&#x66F4;&#x597D;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF0C;&#x6073;&#x8BF7;&#x6307;&#x6559;&#x3002;&#x76EE;&#x524D;&#x6D89;&#x53CA;&#x7684;&#x5185;&#x5BB9;&#x4E3B;&#x8981;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x6784;&#x5EFA;&#x7ED3;&#x679C;&#x90AE;&#x4EF6;&#x53D1;&#x9001;</li>
+<li>&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x66FF;&#x6362;<a id="more"></a>
+</li>
+</ol>
+<h2 id="1-&#x6784;&#x5EFA;&#x7ED3;&#x679C;&#x90AE;&#x4EF6;&#x53D1;&#x9001;"><a href="#1-&#x6784;&#x5EFA;&#x7ED3;&#x679C;&#x90AE;&#x4EF6;&#x53D1;&#x9001;" class="headerlink" title="1. &#x6784;&#x5EFA;&#x7ED3;&#x679C;&#x90AE;&#x4EF6;&#x53D1;&#x9001;"></a>1. &#x6784;&#x5EFA;&#x7ED3;&#x679C;&#x90AE;&#x4EF6;&#x53D1;&#x9001;</h2><p>&#x8FD9;&#x4E2A;&#x4E3B;&#x8981;&#x5B9E;&#x73B0;&#x7684;&#x662F;&#x6784;&#x5EFA;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x50CF;&#x76F8;&#x5173;&#x4EBA;&#x5458;&#x53D1;&#x9001;&#x4E00;&#x4EFD;&#x63A8;&#x9001;&#x90AE;&#x4EF6;&#xFF0C;&#x544A;&#x77E5;&#x6784;&#x5EFA;&#x4FE1;&#x606F;&#x53CA;&#x7ED3;&#x679C;&#x3002;&#x8FD9;&#x91CC;&#x4E3B;&#x8981;&#x4F7F;&#x7528;&#x5230;&#x4E24;&#x4E2A;&#x63D2;&#x4EF6;&#xFF1A;<code>Email Extension Plugin</code>&#x3001;<code>Email Extension Template Plugin</code>&#x3002;</p>
+<ol>
+<li><p>&#x5148;&#x8BBE;&#x7F6E;&#x90AE;&#x4EF6;&#x7684;&#x53D1;&#x9001;&#x8D26;&#x6237;(SMTP)&#x4FE1;&#x606F;&#x3002;&#x8FDB;&#x5165;<code>[&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;-&#x7CFB;&#x7EDF;&#x8BBE;&#x7F6E;-Extended E-mail Notification]</code>&#xFF0C;&#x4E3B;&#x8981;&#x8BBE;&#x7F6E;&#x9009;&#x9879;&#xFF1A;<br><strong>SMTP server</strong>&#xFF1A;&#x8BBE;&#x7F6E;&#x90AE;&#x4EF6;&#x63D0;&#x4F9B;&#x5546;&#x7684;SMTP&#x5730;&#x5740;&#xFF0C;&#x4F8B;&#x5982;163&#x4F01;&#x4E1A;&#x90AE;&#x7BB1;&#x7684;&#x662F;smtp.ym.163.com&#x3002;<br><strong>Default Content Type</strong>&#xFF1A;&#x5185;&#x5BB9;&#x5C55;&#x73B0;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x4E00;&#x822C;&#x9009;&#x62E9;HTML&#x3002;<br><strong>Default Recipients</strong>&#xFF1A;&#x9ED8;&#x8BA4;&#x6536;&#x4EF6;&#x4EBA;&#x3002;<br><strong>Use SMTP Authentication</strong>&#xFF1A;&#x4F7F;&#x7528;SMTP&#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1;&#xFF0C;&#x70B9;&#x5F00;<code>Default user E-mail suffix</code>&#x4E0B;&#x9762;&#x7684;&#x9AD8;&#x7EA7;&#x6309;&#x94AE;&#x624D;&#x80FD;&#x770B;&#x5230;&#xFF0C;&#x9009;&#x4E2D;&#x3002;<br><strong>User Name</strong>&#xFF1A;&#x90AE;&#x4EF6;&#x53D1;&#x9001;&#x8D26;&#x6237;&#x7684;&#x7528;&#x6237;&#x540D;&#x3002;<br><strong>Password</strong>&#xFF1A;&#x90AE;&#x4EF6;&#x53D1;&#x9001;&#x8D26;&#x6237;&#x7684;&#x5BC6;&#x7801;&#x3002;<br><strong>SMTP port</strong>&#xFF1A;SMTP&#x7AEF;&#x53E3;&#x3002;<br><img src="http://pic.todoright.com/QQ20160802-0.png" alt="QQ20160802-0-w243"> </p>
+</li>
+<li><p>&#x8BBE;&#x7F6E;&#x90AE;&#x4EF6;&#x6A21;&#x677F;&#xFF0C;&#x6A21;&#x677F;&#x7684;&#x529F;&#x80FD;&#x4E3B;&#x8981;&#x662F;&#x65B9;&#x4FBF;&#x540E;&#x9762;&#x76F4;&#x63A5;&#x5728;&#x76F8;&#x5E94;&#x7684;&#x5DE5;&#x7A0B;&#x91CC;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x518D;&#x91CD;&#x590D;&#x7F16;&#x5199;&#x6807;&#x9898;&#x3001;&#x5185;&#x5BB9;&#x7B49;&#x5171;&#x901A;&#x4FE1;&#x606F;&#x3002;&#x8FDB;&#x5165;<code>[&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;&#x2014;Editable Email Notification Templates]</code>&#xFF0C;&#x4F1A;&#x9996;&#x5148;&#x770B;&#x5230;&#x5DF2;&#x6709;&#x7684;&#x6A21;&#x677F;&#x5217;&#x8868;&#xFF0C;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x7F16;&#x8F91;&#x3001;&#x5220;&#x9664;&#x64CD;&#x4F5C;&#xFF0C;&#x7136;&#x540E;&#x5DE6;&#x4FA7;&#x83DC;&#x5355;&#x7684;<code>Add New Template</code>&#x53EF;&#x4EE5;&#x65B0;&#x589E;&#x90AE;&#x4EF6;&#x6A21;&#x677F;&#xFF0C;&#x4E3B;&#x8981;&#x8BBE;&#x7F6E;&#x9009;&#x9879;&#xFF1A;<br> <strong>Name</strong>&#xFF1A;&#x6A21;&#x677F;&#x540D;&#x79F0;&#xFF0C;&#x5DE5;&#x7A0B;&#x4E2D;&#x4F1A;&#x9009;&#x62E9;&#x76F8;&#x5E94;&#x540D;&#x79F0;&#x7684;&#x6A21;&#x677F;&#x8C03;&#x7528;&#x3002;<br> <strong>Default Subject</strong>&#xFF1A;&#x90AE;&#x4EF6;&#x6807;&#x9898;&#xFF0C;&#x8FD9;&#x91CC;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x6A21;&#x677F;&#xFF1A;<code>&#x6784;&#x5EFA;&#x901A;&#x77E5;:$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!</code>&#x3002;<br> <strong>Default Content</strong>&#xFF1A;&#x90AE;&#x4EF6;&#x5185;&#x5BB9;&#x3002;&#x8FD9;&#x91CC;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x6A21;&#x677F;&#xFF1A;</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">(&#x672C;&#x90AE;&#x4EF6;&#x662F;&#x7A0B;&#x5E8F;&#x81EA;&#x52A8;&#x4E0B;&#x53D1;&#x7684;&#xFF0C;&#x8BF7;&#x52FF;&#x56DE;&#x590D;&#xFF01;)<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line">&#x9879;&#x76EE;&#x540D;&#x79F0;&#xFF1A;$PROJECT_NAME<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line">&#x6784;&#x5EFA;&#x7F16;&#x53F7;&#xFF1A;$BUILD_NUMBER<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line">svn&#x7248;&#x672C;&#x53F7;&#xFF1A;${SVN_REVISION}<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line">&#x6784;&#x5EFA;&#x72B6;&#x6001;&#xFF1A;$BUILD_STATUS<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line">&#x89E6;&#x53D1;&#x539F;&#x56E0;&#xFF1A;${CAUSE}<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line">&#x6784;&#x5EFA;&#x65E5;&#x5FD7;&#x5730;&#x5740;&#xFF1A;<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;${BUILD_URL}console&quot;</span>&gt;</span>${BUILD_URL}console<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line">&#x6784;&#x5EFA;&#x5730;&#x5740;&#xFF1A;<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;$BUILD_URL&quot;</span>&gt;</span>$BUILD_URL<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line">&#x53D8;&#x66F4;&#x96C6;:${JELLY_SCRIPT,template=&quot;html&quot;}<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p> <strong>Attachments</strong>&#xFF1A;&#x90AE;&#x4EF6;&#x9644;&#x4EF6;&#x3002;<br> <strong>Attach Build Log</strong>&#xFF1A;&#x662F;&#x5426;&#x5C06;&#x6784;&#x5EFA;&#x65E5;&#x5FD7;&#x4F5C;&#x4E3A;&#x9644;&#x4EF6;&#xFF0C;&#x4E09;&#x4E2A;&#x9009;&#x9879;&#x5206;&#x522B;&#x4E3A;&#x9700;&#x8981;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#xFF0C;&#x538B;&#x7F29;&#x4F5C;&#x9644;&#x4EF6;&#x3002;<br> <strong>Triggers</strong>&#xFF1A;&#x90AE;&#x4EF6;&#x53D1;&#x9001;&#x89E6;&#x53D1;&#x6761;&#x4EF6;&#xFF0C;&#x9700;&#x8981;&#x70B9;&#x51FB;&#x4E0B;&#x9762;&#x7684;<code>Advanced Setting</code>&#x6309;&#x94AE;&#x624D;&#x4F1A;&#x51FA;&#x6765;&#x3002;&#x7136;&#x540E;&#x70B9;&#x51FB;<code>Add Trigger</code>&#x6309;&#x94AE;&#xFF0C;&#x9009;&#x62E9;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#xFF0C;&#x6211;&#x8FD9;&#x91CC;&#x9009;&#x62E9;Always&#xFF0C;&#x5373;&#x4E0D;&#x7BA1;&#x6784;&#x5EFA;&#x72B6;&#x6001;&#xFF0C;&#x5747;&#x53D1;&#x9001;&#x90AE;&#x4EF6;&#x3002;&#x7136;&#x540E;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;<code>Send To</code>&#x9009;&#x9879;&#xFF0C;&#x6211;&#x8FD9;&#x91CC;&#x5206;&#x522B;&#x9009;&#x62E9;<code>Developers</code>&#x548C;<code>Recipient List</code>&#xFF0C;&#x5373;&#x53D1;&#x9001;&#x7ED9;&#x6784;&#x5EFA;&#x7684;&#x4EBA;&#x548C;&#x90AE;&#x4EF6;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x4EBA;&#x5458;&#x3002;<br> <img src="http://pic.todoright.com/QQ20160802-1.png" alt="QQ20160802-1-w364"><br> &#x5168;&#x90E8;&#x8BBE;&#x7F6E;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x70B9;&#x51FB;&#x63D0;&#x4EA4;&#x6309;&#x94AE;&#x5373;&#x53EF;&#x3002;</p>
+</li>
+<li><p>&#x6700;&#x540E;&#x7ED9;&#x76F8;&#x5E94;&#x7684;&#x5DE5;&#x7A0B;&#x7ED1;&#x5B9A;&#x90AE;&#x4EF6;&#x6A21;&#x677F;&#xFF0C;&#x8FDB;&#x5165;&#x5DE5;&#x7A0B;&#x7684;&#x6784;&#x5EFA;&#x914D;&#x7F6E;&#xFF0C;&#x9009;&#x62E9;<code>[&#x6784;&#x5EFA;&#x540E;&#x64CD;&#x4F5C;-&#x589E;&#x52A0;&#x6784;&#x5EFA;&#x540E;&#x64CD;&#x4F5C;&#x6B65;&#x9AA4;]</code>&#xFF0C;&#x9009;&#x62E9;<code>Editable Email Notification Templates</code>&#xFF0C;&#x7136;&#x540E;&#x5728;<code>Templates</code>&#x4E2D;&#x7684;&#x4E0B;&#x62C9;&#x5217;&#x8868;&#x4E2D;&#x9009;&#x62E9;&#x521A;&#x521A;&#x8BBE;&#x7F6E;&#x7684;&#x6A21;&#x677F;&#x5373;&#x53EF;&#x3002;<br> <img src="http://pic.todoright.com/QQ20160802-2.png" alt="QQ20160802-2"><br> &#x6210;&#x529F;&#x6536;&#x5230;&#x7684;&#x90AE;&#x4EF6;&#xFF1A;<br> <img src="http://pic.todoright.com/QQ20160802-3.png" alt="QQ20160802-3-w210"></p>
+</li>
+</ol>
+<h2 id="2-&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x66FF;&#x6362;"><a href="#2-&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x66FF;&#x6362;" class="headerlink" title="2. &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x66FF;&#x6362;"></a>2. &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x66FF;&#x6362;</h2><p>&#x4E00;&#x822C;&#x5DE5;&#x7A0B;&#x81F3;&#x5C11;&#x90FD;&#x6709;&#x6D4B;&#x8BD5;&#x73AF;&#x5883;&#x548C;&#x6B63;&#x5F0F;&#x73AF;&#x5883;&#xFF0C;&#x4E0D;&#x540C;&#x73AF;&#x5883;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x662F;&#x4E0D;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x66FF;&#x6362;&#x529F;&#x80FD;&#x5C31;&#x662F;&#x4E8B;&#x5148;&#x5728;Jenkins&#x4E0A;&#x8BBE;&#x7F6E;&#x597D;&#x6B63;&#x786E;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x6784;&#x5EFA;&#x7684;&#x65F6;&#x5019;&#x66FF;&#x6362;&#x76F8;&#x5E94;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x6BCF;&#x6B21;&#x4E0A;&#x4F20;&#x4EE3;&#x7801;&#x7684;&#x65F6;&#x5019;&#x90FD;&#x8981;&#x8BB0;&#x4F4F;&#x6539;&#x73AF;&#x5883;&#x6216;&#x8005;&#x624B;&#x52A8;&#x7684;&#x6539;&#x73AF;&#x5883;&#xFF0C;&#x964D;&#x4F4E;&#x73AF;&#x5883;&#x51FA;&#x9519;&#x7684;&#x6982;&#x7387;&#x3002;&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x5B89;&#x88C5;&#x63D2;&#x4EF6;<code>Config File Provider Plugin</code>&#x3002;</p>
+<ol>
+<li>&#x65B0;&#x5EFA;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x63D2;&#x4EF6;&#x5B89;&#x88C5;&#x597D;&#xFF0C;&#x5728;<code>&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;</code>&#x91CC;&#x53EF;&#x4EE5;&#x627E;&#x5230;<code>Managed files</code>&#x9009;&#x9879;&#xFF0C;&#x8FDB;&#x5165;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x914D;&#x7F6E;&#x8FC7;&#x7684;&#x6587;&#x4EF6;&#x5217;&#x8868;&#xFF0C;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x7F16;&#x8F91;&#x6216;&#x8005;&#x5220;&#x9664;&#x3002;<br><img src="http://pic.todoright.com/QQ20160802-5.png" alt="QQ20160802-5-w342"><br>&#x5728;&#x5DE6;&#x4FA7;&#x83DC;&#x5355;&#x6709;&#x4E00;&#x4E2A;<code>Add a new Config</code>&#x83DC;&#x5355;&#xFF0C;&#x8FDB;&#x5165;&#x53EF;&#x4EE5;&#x65B0;&#x589E;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5B83;&#x4F1A;&#x8BA9;&#x4F60;&#x9009;&#x62E9;&#x65B0;&#x5EFA;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7C7B;&#x578B;&#xFF0C;&#x6839;&#x636E;&#x8981;&#x6C42;&#x9009;&#x62E9;&#xFF0C;&#x6211;&#x8FD9;&#x91CC;&#x9009;&#x62E9;&#x7684;&#x662F;&#x81EA;&#x5B9A;&#x4E49;&#x6587;&#x4EF6;&#x3002;<br><img src="http://pic.todoright.com/QQ20160802-6.png" alt="QQ20160802-6-w262"><br>&#x8FDB;&#x5165;&#x5177;&#x4F53;&#x8BBE;&#x7F6E;&#x9875;&#x9762;&#xFF0C;&#x4E3B;&#x8981;&#x8BBE;&#x7F6E;Name&#x3001;Comment&#x3001;Content&#x4E09;&#x4E2A;&#x9009;&#x9879;&#xFF0C;Name&#x5C31;&#x662F;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x5B57;&#xFF0C;Comment&#x5907;&#x6CE8;&#xFF0C;Content&#x5C31;&#x662F;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x5177;&#x4F53;&#x5185;&#x5BB9;&#x3002;<br><img src="http://pic.todoright.com/QQ20160802-7.png" alt="QQ20160802-7-w324">  </li>
+<li>&#x5DE5;&#x7A0B;&#x914D;&#x7F6E;&#xFF0C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x65B0;&#x5EFA;&#x597D;&#x540E;&#xFF0C;&#x8FDB;&#x5165;&#x5DE5;&#x7A0B;&#x7684;&#x6784;&#x5EFA;&#x8BBE;&#x7F6E;&#xFF0C;&#x627E;&#x5230;<code>&#x6784;&#x5EFA;&#x73AF;&#x5883;</code>&#x6A21;&#x5757;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;<code>Provide Configuration files</code>&#x9009;&#x9879;&#xFF0C;&#x9009;&#x62E9;&#x540E;&#xFF0C;&#x4E3B;&#x8981;&#x9700;&#x8981;&#x8BBE;&#x7F6E;File&#x3001;Target&#x4E24;&#x4E2A;&#x9009;&#x9879;&#xFF0C;File&#x5C31;&#x662F;&#x9009;&#x62E9;&#x521A;&#x521A;&#x65B0;&#x5EFA;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;Target&#x662F;&#x9009;&#x62E9;&#x9700;&#x8981;&#x88AB;&#x66FF;&#x6362;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x8DEF;&#x5F84;&#xFF0C;&#x8FD9;&#x91CC;&#x7684;&#x9ED8;&#x8BA4;&#x8DEF;&#x5F84;&#x662F;&#x5F53;&#x524D;&#x5DE5;&#x7A0B;&#x7684;&#x8DDF;&#x76EE;&#x5F55;&#x3002;<br><img src="http://pic.todoright.com/QQ20160802-9.png" alt="QQ20160802-9-w331"><br>&#x8BBE;&#x7F6E;&#x5B8C;&#x63D0;&#x4EA4;&#x5373;&#x53EF;&#xFF0C;&#x91CD;&#x65B0;&#x6784;&#x5EFA;&#x65F6;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5728;&#x6784;&#x5EFA;&#x524D;Jenkins&#x4F1A;&#x66FF;&#x6362;&#x76F8;&#x5173;&#x6587;&#x4EF6;&#x3002;<br><img src="http://pic.todoright.com/QQ20160802-10.png" alt="QQ20160802-10"></li>
+</ol>
+<p>&#x672C;&#x6587;&#x53C2;&#x8003;&#x7684;&#x6587;&#x7AE0;&#x5730;&#x5740;:  </p>
+<ol>
+<li><a href="http://www.cnblogs.com/zz0412/p/jenkins_jj_01.html" target="_blank" rel="external">http://www.cnblogs.com/zz0412/p/jenkins_jj_01.html</a>  </li>
+<li><a href="http://bookong.iteye.com/blog/2036633" target="_blank" rel="external">http://bookong.iteye.com/blog/2036633</a></li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/07/28/Maven-SVN-Tomcat-Jenkins自动化集成入门/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Maven+SVN+Tomcat+Jenkins自动化集成入门</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Jenkins基础使用进阶（持续更新）" data-title="Jenkins基础使用进阶（持续更新）" data-url="http://todoright.com/2016/08/03/Jenkins基础使用进阶（持续更新）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"todoright"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 JamieXu
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
