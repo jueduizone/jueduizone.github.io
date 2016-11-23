@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://todoright.com">
+  <title>Java设计模式第二弹之结构型模式 | 看我六级跳大</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#x4EE3;&amp;#x7406;&amp;#x6A21;&amp;#x5F0F;1 &amp;#x4F55;&amp;#x4E3A;&amp;#x4EE3;&amp;#x7406;&amp;#x6A21;&amp;#x5F0F;&amp;#x4EE3;&amp;#x7406;&amp;#x6A21;&amp;#x5F0F;&amp;#xFF08;&amp;#x4E5F;&amp;#x53EB;&amp;#x59D4;&amp;#x6258;&amp;#x6A21;&amp;#x5F0F;&amp;#xFF09;&amp;#x7684;&amp;#x5B9A;&amp;#x4E4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java设计模式第二弹之结构型模式">
+<meta property="og:url" content="http://todoright.com/2016/11/23/Java设计模式第二弹之结构型设计模式/index.html">
+<meta property="og:site_name" content="看我六级跳大">
+<meta property="og:description" content="&amp;#x4EE3;&amp;#x7406;&amp;#x6A21;&amp;#x5F0F;1 &amp;#x4F55;&amp;#x4E3A;&amp;#x4EE3;&amp;#x7406;&amp;#x6A21;&amp;#x5F0F;&amp;#x4EE3;&amp;#x7406;&amp;#x6A21;&amp;#x5F0F;&amp;#xFF08;&amp;#x4E5F;&amp;#x53EB;&amp;#x59D4;&amp;#x6258;&amp;#x6A21;&amp;#x5F0F;&amp;#xFF09;&amp;#x7684;&amp;#x5B9A;&amp;#x4E4">
+<meta property="og:image" content="http://todoright.com/2016/11/23/Java设计模式第二弹之结构型设计模式/staticProxy.jpg">
+<meta property="og:image" content="http://todoright.com/2016/11/23/Java设计模式第二弹之结构型设计模式/dypro.jpg">
+<meta property="og:image" content="http://todoright.com/2016/11/23/Java设计模式第二弹之结构型设计模式/Adapter.jpg">
+<meta property="og:updated_time" content="2016-11-23T08:44:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java设计模式第二弹之结构型模式">
+<meta name="twitter:description" content="&amp;#x4EE3;&amp;#x7406;&amp;#x6A21;&amp;#x5F0F;1 &amp;#x4F55;&amp;#x4E3A;&amp;#x4EE3;&amp;#x7406;&amp;#x6A21;&amp;#x5F0F;&amp;#x4EE3;&amp;#x7406;&amp;#x6A21;&amp;#x5F0F;&amp;#xFF08;&amp;#x4E5F;&amp;#x53EB;&amp;#x59D4;&amp;#x6258;&amp;#x6A21;&amp;#x5F0F;&amp;#xFF09;&amp;#x7684;&amp;#x5B9A;&amp;#x4E4">
+<meta name="twitter:image" content="http://todoright.com/2016/11/23/Java设计模式第二弹之结构型设计模式/staticProxy.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="看我六级跳大" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/headico.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">JamieXu</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">但行好事，莫问前程</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/photos">相册</a></li>
+	        
+				<li><a href="/tags/技术/">技术</a></li>
+	        
+				<li><a href="/tags/小心思/">小心思</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/jueduizone" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="http://weibo.com/kelexu" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">JamieXu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/img/headico.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">JamieXu</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">但行好事，莫问前程</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/photos">相册</a></li>
+		        
+					<li><a href="/tags/技术/">技术</a></li>
+		        
+					<li><a href="/tags/小心思/">小心思</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/jueduizone" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/kelexu" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Java设计模式第二弹之结构型设计模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java设计模式第二弹之结构型模式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="&#x4EE3;&#x7406;&#x6A21;&#x5F0F;"><a href="#&#x4EE3;&#x7406;&#x6A21;&#x5F0F;" class="headerlink" title="&#x4EE3;&#x7406;&#x6A21;&#x5F0F;"></a>&#x4EE3;&#x7406;&#x6A21;&#x5F0F;</h2><h3 id="1-&#x4F55;&#x4E3A;&#x4EE3;&#x7406;&#x6A21;&#x5F0F;"><a href="#1-&#x4F55;&#x4E3A;&#x4EE3;&#x7406;&#x6A21;&#x5F0F;" class="headerlink" title="1 &#x4F55;&#x4E3A;&#x4EE3;&#x7406;&#x6A21;&#x5F0F;"></a>1 &#x4F55;&#x4E3A;&#x4EE3;&#x7406;&#x6A21;&#x5F0F;</h3><p><strong>&#x4EE3;&#x7406;&#x6A21;&#x5F0F;&#xFF08;&#x4E5F;&#x53EB;&#x59D4;&#x6258;&#x6A21;&#x5F0F;&#xFF09;&#x7684;&#x5B9A;&#x4E49;&#xFF1A;&#x4E3A;&#x67D0;&#x4E2A;&#x5BF9;&#x8C61;&#x63D0;&#x4F9B;&#x4E00;&#x79CD;&#x4EE3;&#x7406;&#xFF0C;&#x4EE5;&#x63A7;&#x5236;&#x5BF9;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x8BBF;&#x95EE;&#xFF0C;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x8D77;&#x5230;&#x4E00;&#x4E2A;&#x4E2D;&#x4ECB;&#x4F5C;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x53BB;&#x6389;&#x539F;&#x6709;&#x7684;&#x529F;&#x80FD;&#x6216;&#x589E;&#x52A0;&#x989D;&#x5916;&#x7684;&#x529F;&#x80FD;&#x670D;&#x52A1;&#x3002;</strong><br>&#x706B;&#x8F66;&#x7968;&#x4EE3;&#x552E;&#x70B9;&#x5C31;&#x662F;&#x706B;&#x8F66;&#x7AD9;&#x7684;&#x4EE3;&#x7406;&#xFF0C;Spring AOP&#xFF08;&#x5207;&#x9762;&#x7F16;&#x7A0B;&#xFF09;&#x4E5F;&#x662F;&#x4E00;&#x79CD;&#x4EE3;&#x7406;&#x6A21;&#x5F0F;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x5F71;&#x54CD;&#x6216;&#x6539;&#x53D8;&#x88AB;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5B9E;&#x73B0;&#x7279;&#x5B9A;&#x529F;&#x80FD;&#xFF0C;&#x5982;&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#xFF0C;&#x6743;&#x9650;&#x63A7;&#x5236;&#x7B49;&#x3002;<a id="more"></a><br>&#x6211;&#x4EEC;&#x5148;&#x6765;&#x770B;&#x4E00;&#x4E0B;&#x4EE3;&#x7406;&#x6A21;&#x5F0F;&#x7684;&#x901A;&#x7528;&#x7C7B;&#x56FE;&#xFF1A;<br><img src="/2016/11/23/Java&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x7B2C;&#x4E8C;&#x5F39;&#x4E4B;&#x7ED3;&#x6784;&#x578B;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;/staticProxy.jpg" alt="staticProxy"></p>
+<p><strong>&#x7C7B;&#x56FE;&#x4E2D;&#x4E00;&#x5171;&#x6709;&#x4E09;&#x79CD;&#x89D2;&#x8272;&#xFF1A;</strong>  </p>
+<ul>
+<li>Subject&#x62BD;&#x8C61;&#x89D2;&#x8272;&#xFF1A;&#x4E3B;&#x8981;&#x662F;&#x8981;&#x88AB;&#x5B9E;&#x73B0;&#x7684;&#x62BD;&#x8C61;&#x7C7B;&#x6216;&#x63A5;&#x53E3;&#xFF0C;&#x5B9A;&#x4E49;&#x4E86;&#x4E1A;&#x52A1;&#x63A5;&#x53E3;&#x3002;</li>
+<li>RealSubject&#x771F;&#x5B9E;&#x89D2;&#x8272;&#xFF1A;&#x88AB;&#x4EE3;&#x7406;&#xFF08;&#x59D4;&#x6258;&#xFF09;&#x7C7B;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;Subject&#x4E2D;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x3002;</li>
+<li>Proxy&#x89D2;&#x8272;&#xFF1A;&#x4EE3;&#x7406;&#xFF08;&#x59D4;&#x6258;&#xFF09;&#x7C7B;&#xFF0C;&#x662F;RealSubject&#x7684;&#x4EE3;&#x7406;&#xFF0C;&#x4E5F;&#x5B9E;&#x73B0;&#x4E86;Subject&#x89D2;&#x8272;&#xFF0C;&#x4F46;&#x901A;&#x8FC7;RealSubject&#x6765;&#x5B9E;&#x73B0;&#x5177;&#x4F53;&#x4E1A;&#x52A1;&#x529F;&#x80FD;&#xFF0C;&#x5E76;&#x9644;&#x52A0;&#x4E86;&#x81EA;&#x5DF1;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x4E00;&#x822C;&#x662F;&#x505A;&#x9884;&#x5904;&#x7406;&#x6216;&#x5584;&#x540E;&#x5DE5;&#x4F5C;&#x3002;</li>
+</ul>
+<p><strong>&#x5E38;&#x89C1;&#x7684;&#x4EE3;&#x7406;&#x6A21;&#x5F0F;&#xFF1A;</strong></p>
+<ul>
+<li>&#x8FDC;&#x7A0B;&#x4EE3;&#x7406;&#xFF1A;&#x4E3A;&#x4E0D;&#x540C;&#x5730;&#x7406;&#x7684;&#x5BF9;&#x8C61;&#x63D0;&#x4F9B;&#x5C40;&#x57DF;&#x7F51;&#x4EE3;&#x8868;&#x5BF9;&#x8C61;&#x3002;</li>
+<li>&#x4FDD;&#x62A4;&#x4EE3;&#x7406;&#xFF1A;&#x63A7;&#x5236;&#x5BF9;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x8BBF;&#x95EE;&#x7684;&#x6743;&#x9650;&#xFF08;&#x6743;&#x9650;&#x63A7;&#x5236;&#xFF09;&#x3002;</li>
+<li>&#x667A;&#x80FD;&#x5F15;&#x7528;&#x4EE3;&#x7406;&#xFF1A;&#x63D0;&#x4F9B;&#x5BF9;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x989D;&#x5916;&#x7684;&#x670D;&#x52A1;&#xFF0C;&#x672C;&#x6587;&#x4EE3;&#x7801;&#x4EE5;&#x8FD9;&#x4E2A;&#x4E3A;&#x4F8B;&#x3002;</li>
+<li>&#x865A;&#x62DF;&#x4EE3;&#x7406;&#xFF1A;&#x6839;&#x636E;&#x9700;&#x8981;&#x5C06;&#x8D44;&#x6E90;&#x6D88;&#x8017;&#x5F88;&#x5927;&#x7684;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x5EF6;&#x8FDF;&#xFF0C;&#x771F;&#x6B63;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#x624D;&#x521B;&#x5EFA;&#x3002;</li>
+</ul>
+<p><strong>&#x4EE3;&#x7406;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x6709;&#x4E24;&#x79CD;&#xFF1A;</strong></p>
+<ul>
+<li>&#x9759;&#x6001;&#x4EE3;&#x7406;&#xFF1A;&#x4EE3;&#x7406;&#x548C;&#x88AB;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x5728;&#x4EE3;&#x7406;&#x524D;&#x662F;&#x786E;&#x5B9A;&#x7684;&#xFF0C;&#x4ED6;&#x4EEC;&#x90FD;&#x5B9E;&#x73B0;&#x4E86;&#x76F8;&#x540C;&#x7684;&#x63A5;&#x53E3;&#x6216;&#x8005;&#x7EE7;&#x627F;&#x76F8;&#x540C;&#x7684;&#x62BD;&#x8C61;&#x7C7B;&#x3002;</li>
+<li>&#x52A8;&#x6001;&#x4EE3;&#x7406;&#xFF1A;&#x52A8;&#x6001;&#x7684;&#x4EA7;&#x751F;&#x4EE3;&#x7406;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x5BF9;&#x4E0D;&#x540C;&#x7C7B;&#x3001;&#x4E0D;&#x540C;&#x65B9;&#x6CD5;&#x7684;&#x4EE3;&#x7406;&#x3002;</li>
+</ul>
+<h3 id="2-&#x9759;&#x6001;&#x4EE3;&#x7406;"><a href="#2-&#x9759;&#x6001;&#x4EE3;&#x7406;" class="headerlink" title="2 &#x9759;&#x6001;&#x4EE3;&#x7406;"></a>2 &#x9759;&#x6001;&#x4EE3;&#x7406;</h3><p><strong>&#x9759;&#x6001;&#x4EE3;&#x7406;&#x5B9E;&#x73B0;&#x8FD8;&#x5206;&#x4E3A;&#x7EE7;&#x627F;&#x548C;&#x805A;&#x5408;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;</strong>&#x3002;<br>&#x7EE7;&#x627F;&#x65B9;&#x5F0F;&#x4E3B;&#x8981;&#x662F;Proxy&#x7EE7;&#x627F;RealSubject&#xFF0C;&#x7136;&#x540E;&#x5B9E;&#x73B0;&#x6216;&#x76F4;&#x63A5;&#x8C03;&#x7528;RealSubject&#x7684;&#x65B9;&#x6CD5;&#x5E76;&#x52A0;&#x4E0A;&#x81EA;&#x5DF1;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x62D3;&#x5C55;&#x6027;&#x8F83;&#x5DEE;&#xFF0C;&#x6240;&#x4EE5;&#x4E00;&#x822C;&#x4E0D;&#x63A8;&#x8350;&#xFF0C;&#x8FD9;&#x91CC;&#x4E0D;&#x7EC6;&#x8BF4;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x6587;&#x672B;Demo&#x4EE3;&#x7801;&#x3002;<br>&#x800C;&#x805A;&#x5408;&#x65B9;&#x5F0F;&#x5219;&#x662F;Proxy&#x548C;RealSubject&#x90FD;&#x5B9E;&#x73B0;&#x6216;&#x7EE7;&#x627F;Subject&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x76F8;&#x4E92;&#x4EE3;&#x7406;&#x7684;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#x529F;&#x80FD;&#x91CD;&#x7528;&#xFF0C;&#x6BD4;&#x8F83;&#x7075;&#x6D3B;&#x3002;<br>&#x8FD9;&#x91CC;&#x5C31;&#x4EE5;&#x5356;&#x706B;&#x8F66;&#x7968;&#x4E3A;&#x4F8B;&#xFF0C;show the code&#xFF1A;<br>Subject&#x62BD;&#x8C61;&#x89D2;&#x8272;&#xFF08;&#x62BD;&#x8C61;&#x4E86;&#x5356;&#x7968;&#x7684;&#x65B9;&#x6CD5;&#x7684;&#x63A5;&#x53E3;&#xFF09;&#xFF1A;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">TicketBusiness</span> </span>{</span><br><span class="line">    <span class="comment">//&#x5356;&#x7968;&#x65B9;&#x6CD5;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saleTicket</span><span class="params">()</span></span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>RealSubject&#x771F;&#x5B9E;&#x89D2;&#x8272;&#xFF1A;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RailwayStation</span> <span class="keyword">implements</span> <span class="title">TicketBusiness</span> </span>{</span><br><span class="line">    <span class="comment">//&#x5B9E;&#x73B0;&#x4E70;&#x7968;&#x65B9;&#x6CD5;</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saleTicket</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="comment">//&#x968F;&#x673A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x4EF7;&#x683C;&#x610F;&#x601D;&#x4E00;&#x4E0B;</span></span><br><span class="line">        <span class="keyword">int</span> price = <span class="keyword">new</span> Random().nextInt(<span class="number">100</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x4E00;&#x672C;&#x6B63;&#x7ECF;&#x7684;&#x5356;&#x7968;,&#x4EF7;&#x683C;:&quot;</span> + price + <span class="string">&quot;&#x5143;&quot;</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>Proxy&#x89D2;&#x8272;&#x4E4B;&#x4E00;&#xFF0C;&#x4F5C;&#x4E3A;&#x4EE3;&#x552E;&#x70B9;&#xFF0C;&#x8981;&#x6536;&#x624B;&#x7EED;&#x8D39;&#x8D39;&#x6323;&#x94B1;&#x554A;&#xFF0C;&#x6240;&#x4EE5;&#x589E;&#x52A0;&#x4E86;&#x6536;&#x624B;&#x7EED;&#x8D39;&#x7684;&#x529F;&#x80FD;&#xFF1A;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxyByAddChargePoly</span> <span class="keyword">implements</span> <span class="title">TicketBusiness</span> </span>{</span><br><span class="line">    TicketBusiness ticketBusiness;</span><br><span class="line">    <span class="comment">//&#x901A;&#x8FC7;&#x6784;&#x9020;&#x51FD;&#x6570;&#x65B9;&#x5F0F;&#x8C03;&#x7528;&#x88AB;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ProxyByAddChargePoly</span><span class="params">(TicketBusiness ticketBusiness)</span> </span>{</span><br><span class="line">        <span class="keyword">this</span>.ticketBusiness = ticketBusiness;</span><br><span class="line">    }</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saleTicket</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="comment">//&#x8C03;&#x7528;&#x88AB;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;</span></span><br><span class="line">        ticketBusiness.saleTicket();</span><br><span class="line">        <span class="comment">//&#x589E;&#x52A0;&#x6536;&#x624B;&#x7EED;&#x8D39;&#x7684;&#x65B9;&#x6CD5;</span></span><br><span class="line">        System.out.println(<span class="string">&quot;&#x6536;&#x53D6;&#x4E86;&#x624B;&#x7EED;&#x8D39;5&#x5143;!&quot;</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x901A;&#x8FC7;&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x6211;&#x4EEC;&#x5C31;&#x80FD;&#x5B9E;&#x73B0;&#x805A;&#x5408;&#x65B9;&#x5F0F;&#x7684;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#xFF0C;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#xFF1A;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="comment">//&#x8C03;&#x7528;&#x805A;&#x5408;&#x7684;&#x65B9;&#x5F0F;</span></span><br><span class="line">        RailwayStation railwayStation = <span class="keyword">new</span> RailwayStation();</span><br><span class="line">        TicketBusiness ticketBusiness = <span class="keyword">new</span> ProxyByAddChargePoly(railwayStation);</span><br><span class="line">        ticketBusiness.saleTicket();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x8FD9;&#x65F6;&#x5019;&#x53C8;&#x6765;&#x65B0;&#x9700;&#x6C42;&#x4E86;&#xFF0C;&#x5F97;&#x8BB0;&#x5F55;&#x4E70;&#x7968;&#x524D;&#x540E;&#x7684;&#x65E5;&#x5FD7;&#xFF0C;&#x8BE5;&#x600E;&#x4E48;&#x505A;&#x5462;&#xFF1F;&#x8FD9;&#x91CC;&#x53EA;&#x8981;&#x6309;&#x7167;&#x4E0A;&#x9762;&#x6536;&#x624B;&#x7EED;&#x8D39;&#x7684;&#x65B9;&#x5F0F;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x65E5;&#x5FD7;&#x8BB0;&#x5F55;&#x7684;&#x7C7B;&#xFF0C;&#x5E76;&#x5B9E;&#x73B0;Subject&#x5C31;&#x597D;&#x4E86;&#xFF1A;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxyAddLogByPoly</span> <span class="keyword">implements</span> <span class="title">TicketBusiness</span> </span>{</span><br><span class="line">    TicketBusiness ticketBusiness;</span><br><span class="line">    <span class="comment">//&#x901A;&#x8FC7;&#x6784;&#x9020;&#x51FD;&#x6570;&#x65B9;&#x5F0F;&#x8C03;&#x7528;&#x88AB;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ProxyAddLogByPoly</span><span class="params">(TicketBusiness ticketBusiness)</span> </span>{</span><br><span class="line">        <span class="keyword">this</span>.ticketBusiness = ticketBusiness;</span><br><span class="line">    }</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saleTicket</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x65E5;&#x5FD7; ==&gt; &#x5F00;&#x59CB;&#x5356;&#x7968;&quot;</span>);</span><br><span class="line">        ticketBusiness.saleTicket();</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x65E5;&#x5FD7; ==&gt; &#x7ED3;&#x675F;&#x5356;&#x7968;&quot;</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x8FD9;&#x662F;&#x7684;&#x8C03;&#x7528;&#x65B9;&#x5F0F;&#x5C31;&#x53D8;&#x6210;&#x4E86;&#xFF1A;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        RailwayStation ticketBusiness = <span class="keyword">new</span> RailwayStation();</span><br><span class="line">        ProxyByAddChargePoly proxyByPoly = <span class="keyword">new</span> ProxyByAddChargePoly(ticketBusiness);</span><br><span class="line">        ProxyAddLogByPoly proxyAddLogByPoly = <span class="keyword">new</span> ProxyAddLogByPoly(proxyByPoly);</span><br><span class="line">        proxyAddLogByPoly.saleTicket();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-&#x52A8;&#x6001;&#x4EE3;&#x7406;"><a href="#3-&#x52A8;&#x6001;&#x4EE3;&#x7406;" class="headerlink" title="3 &#x52A8;&#x6001;&#x4EE3;&#x7406;"></a>3 &#x52A8;&#x6001;&#x4EE3;&#x7406;</h3><p>&#x968F;&#x7740;&#x4EE3;&#x552E;&#x70B9;&#x7684;&#x4E1A;&#x52A1;&#x53D1;&#x5C55;&#xFF0C;&#x5F00;&#x59CB;&#x505A;&#x6C7D;&#x8F66;&#x7968;&#x7684;&#x4EE3;&#x552E;&#x4E86;&#xFF0C;&#x4E5F;&#x8981;&#x6536;&#x624B;&#x7EED;&#x8D39;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x706B;&#x8F66;&#x7968;&#x548C;&#x6C7D;&#x8F66;&#x7968;&#x7684;Subject&#x662F;&#x4E0D;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x9759;&#x6001;&#x4EE3;&#x7406;&#x5C31;&#x4E0D;&#x80FD;&#x5B9E;&#x73B0;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x51FA;&#x73B0;&#x4E86;&#xFF1A;<strong>&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x5BF9;&#x4E0D;&#x540C;&#x7C7B;&#x3001;&#x4E0D;&#x540C;&#x65B9;&#x6CD5;&#x7684;&#x4EE3;&#x7406;&#x3002;</strong><br>&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x76EE;&#x524D;&#x4E3B;&#x8981;&#x6709;&#x4E24;&#x79CD;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#xFF1A;JDK&#x548C;CGLib&#x3002;</p>
+<h4 id="3-1-JDK-&#x5B9E;&#x73B0;&#x52A8;&#x6001;&#x4EE3;&#x7406;"><a href="#3-1-JDK-&#x5B9E;&#x73B0;&#x52A8;&#x6001;&#x4EE3;&#x7406;" class="headerlink" title="3.1 JDK &#x5B9E;&#x73B0;&#x52A8;&#x6001;&#x4EE3;&#x7406;"></a>3.1 JDK &#x5B9E;&#x73B0;&#x52A8;&#x6001;&#x4EE3;&#x7406;</h4><p><img src="/2016/11/23/Java&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x7B2C;&#x4E8C;&#x5F39;&#x4E4B;&#x7ED3;&#x6784;&#x578B;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;/dypro.jpg" alt="dyProxy"><br>JDK &#x52A8;&#x6001;&#x4EE3;&#x7406;&#x4E3B;&#x8981;&#x5C31;&#x662F;&#x5728;&#x4EE3;&#x7406;&#x7C7B;&#x548C;&#x88AB;&#x4EE3;&#x7406;&#x7C7B;&#x52A0;&#x5165;&#x4E86;&#x5B9E;&#x73B0;<code>InvocationHandler</code>&#x63A5;&#x53E3;&#x7684;&#x5904;&#x7406;&#x7C7B;&#xFF08;&#x4E8B;&#x52A1;&#x5904;&#x7406;&#x5668;&#xFF09;&#xFF0C;&#x9700;&#x8981;&#x7684;&#x589E;&#x52A0;&#x7684;&#x529F;&#x80FD;&#x6216;&#x4E1A;&#x52A1;&#x5904;&#x7406;&#x5C31;&#x662F;&#x5728;&#x8FD9;&#x4E2A;&#x5904;&#x7406;&#x7C7B;&#x4E2D;&#x8FDB;&#x884C;&#x7684;&#x3002;<br>&#x53E6;&#x5916;&#x8FD8;&#x589E;&#x52A0;&#x4E86;<code>Proxy</code>&#x8FD9;&#x4E2A;&#x7C7B;&#xFF0C;&#x8FD9;&#x4E2A;&#x7C7B;&#x5C31;&#x662F;&#x4EA7;&#x751F;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x7684;&#x7C7B;&#x3002;<br>show the code:<br>Subject &#x63A5;&#x53E3;&#x5BF9;&#x8C61;&#xFF1A;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">TicketBusiness</span> </span>{</span><br><span class="line">    <span class="comment">//&#x5356;&#x7968;&#x65B9;&#x6CD5;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saleTicket</span><span class="params">()</span></span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x5B9E;&#x73B0;&#x4E86;Subject&#x63A5;&#x53E3;&#x7684;&#x88AB;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#xFF1A;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RailwayStation</span> <span class="keyword">implements</span> <span class="title">TicketBusiness</span> </span>{</span><br><span class="line">    <span class="comment">//&#x5B9E;&#x73B0;&#x4E70;&#x7968;&#x65B9;&#x6CD5;</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saleTicket</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="comment">//&#x968F;&#x673A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x4EF7;&#x683C;</span></span><br><span class="line">        <span class="keyword">int</span> price = <span class="keyword">new</span> Random().nextInt(<span class="number">100</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x4E00;&#x672C;&#x6B63;&#x7ECF;&#x7684;&#x5356;&#x7968;,&#x4EF7;&#x683C;:&quot;</span> + price + <span class="string">&quot;&#x5143;&quot;</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x5B9E;&#x73B0;&#x4E86;<code>InvocationHandler</code>&#x63A5;&#x53E3;&#x7684;&#x4EE3;&#x7406;&#x7C7B;&#xFF1A;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ChargeProxyHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span> </span>{</span><br><span class="line">    <span class="keyword">private</span> Object target;</span><br><span class="line">    <span class="comment">//&#x901A;&#x8FC7;&#x6784;&#x9020;&#x51FD;&#x6570;&#x65B9;&#x5F0F;&#x5F15;&#x5165;&#x88AB;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ChargeProxyHandler</span><span class="params">(Object target)</span> </span>{</span><br><span class="line">        <span class="keyword">this</span>.target = target;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> proxy  &#x88AB;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;</span><br><span class="line">     * <span class="doctag">@param</span> method &#x88AB;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;</span><br><span class="line">     * <span class="doctag">@param</span> args   &#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;</span><br><span class="line">     * <span class="doctag">@return</span></span><br><span class="line">     * <span class="doctag">@throws</span> Throwable</span><br><span class="line">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>{</span><br><span class="line">        method.invoke(target);</span><br><span class="line">        <span class="comment">//&#x589E;&#x52A0;&#x6536;&#x624B;&#x7EED;&#x8D39;&#x7684;&#x65B9;&#x6CD5;</span></span><br><span class="line">        System.out.println(<span class="string">&quot;&#x6536;&#x53D6;&#x4E86;&#x624B;&#x7EED;&#x8D39;5&#x5143;!&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x6D4B;&#x8BD5;&#x8C03;&#x7528;&#xFF1A;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        RailwayStation rs = <span class="keyword">new</span> RailwayStation();</span><br><span class="line">        Class&lt;?&gt; c = rs.getClass();</span><br><span class="line">        InvocationHandler handler = <span class="keyword">new</span> ChargeProxyHandler(rs);</span><br><span class="line">        <span class="comment">/**</span><br><span class="line">         * &#x901A;&#x8FC7;Proxy&#x7684;newProxyInstance&#x65B9;&#x6CD5;&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x4EE3;&#x7406;&#x7C7B;</span><br><span class="line">         *    newProxyInstance(ClassLoader loader,Class&lt;?&gt;[] interfaces,InvocationHandler h)</span><br><span class="line">         * loader: &#x7C7B;&#x52A0;&#x8F7D;&#x5668;</span><br><span class="line">         * interfaces: &#x5B9E;&#x73B0;&#x63A5;&#x53E3;</span><br><span class="line">         * InvocationHandler &#x4EE3;&#x7406;&#x7C7B;(&#x4E8B;&#x52A1;&#x5904;&#x7406;&#x7C7B;)</span><br><span class="line">         */</span></span><br><span class="line">        TicketBusiness t = (TicketBusiness) Proxy.newProxyInstance(c.getClassLoader(), c.getInterfaces(), handler);</span><br><span class="line">        <span class="comment">//&#x901A;&#x8FC7;&#x4EE3;&#x7406;&#x8C03;&#x7528;&#x65B9;&#x6CD5;</span></span><br><span class="line">        t.saleTicket();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x65E5;&#x5FD7;&#x8BB0;&#x5F55;&#x7684;&#x4EE3;&#x7406;&#x7C7B;&#xFF0C;&#x5B9E;&#x73B0;&#x591A;&#x7EA7;&#x4EE3;&#x7406;&#xFF1A;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LogProxyHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span> </span>{</span><br><span class="line">    <span class="keyword">private</span> Object target;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LogProxyHandler</span><span class="params">(Object target)</span> </span>{</span><br><span class="line">        <span class="keyword">this</span>.target = target;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>{</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x65E5;&#x5FD7; ==&gt; &#x5F00;&#x59CB;&#x5356;&#x7968;&quot;</span>);</span><br><span class="line">        method.invoke(target);</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x65E5;&#x5FD7; ==&gt; &#x7ED3;&#x675F;&#x5356;&#x7968;&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x6D4B;&#x8BD5;&#x8C03;&#x7528;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        RailwayStation rs = <span class="keyword">new</span> RailwayStation();</span><br><span class="line">        Class&lt;?&gt; c = rs.getClass();</span><br><span class="line">        <span class="comment">//&#x6536;&#x8D39;&#x4EE3;&#x7406;&#x7C7B;</span></span><br><span class="line">        InvocationHandler handler = <span class="keyword">new</span> ChargeProxyHandler(rs);</span><br><span class="line">        TicketBusiness t = (TicketBusiness) Proxy.newProxyInstance(c.getClassLoader(), c.getInterfaces(), handler);</span><br><span class="line">        <span class="comment">//&#x65E5;&#x5FD7;&#x4EE3;&#x7406;&#x7C7B;,&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x4F20;&#x5165;&#x7684;&#x662F;&#x4E0A;&#x9762;&#x52A8;&#x6001;&#x751F;&#x6210;&#x7684;&#x4EE3;&#x7406;&#x7C7B;</span></span><br><span class="line">        InvocationHandler logHandler = <span class="keyword">new</span> LogProxyHandler(t);</span><br><span class="line">        TicketBusiness t2 = (TicketBusiness) Proxy.newProxyInstance(c.getClassLoader(), c.getInterfaces(), logHandler);</span><br><span class="line"></span><br><span class="line">        t2.saleTicket();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x5230;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x5C31;&#x5B9E;&#x73B0;&#x4E86;JDK&#x7684;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#xFF0C;&#x5176;&#x5B9E;&#x4E3B;&#x8981;&#x5C31;4&#x4E2A;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<ol>
+<li>&#x521B;&#x5EFA;&#x63A5;&#x53E3;&#x53CA;&#x88AB;&#x4EE3;&#x7406;&#x7C7B;</li>
+<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5B9E;&#x73B0;&#x4E86;<code>InvocationHandler</code>&#x63A5;&#x53E3;&#x7684;&#x4E8B;&#x52A1;&#x5904;&#x7406;&#x7C7B;</li>
+<li>&#x8C03;&#x7528;<code>Proxy</code>&#x7C7B;&#x7684;<code>newProxyInstance</code>&#x65B9;&#x6CD5;&#x52A8;&#x6001;&#x4EA7;&#x751F;&#x4EE3;&#x7406;&#x7C7B;&#x3002;</li>
+<li>&#x901A;&#x8FC7;&#x4EE3;&#x7406;&#x7C7B;&#x8C03;&#x7528;&#x65B9;&#x6CD5;&#x3002;<br>JDK&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x6709;&#x4E00;&#x4E2A;&#x5F0A;&#x7AEF;&#x5C31;&#x662F;&#x53EA;&#x80FD;&#x4EE3;&#x7406;&#x5B9E;&#x73B0;&#x4E86;&#x63A5;&#x53E3;&#x7684;&#x7C7B;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x8981;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x63A5;&#x53E3;&#x7684;&#x7C7B;&#x5C31;&#x9700;&#x8981;CGLib&#x4E86;&#x3002;</li>
+</ol>
+<h4 id="3-2-CGLib&#x5B9E;&#x73B0;&#x52A8;&#x6001;&#x4EE3;&#x7406;"><a href="#3-2-CGLib&#x5B9E;&#x73B0;&#x52A8;&#x6001;&#x4EE3;&#x7406;" class="headerlink" title="3.2 CGLib&#x5B9E;&#x73B0;&#x52A8;&#x6001;&#x4EE3;&#x7406;"></a>3.2 CGLib&#x5B9E;&#x73B0;&#x52A8;&#x6001;&#x4EE3;&#x7406;</h4><p>CGLib&#x7684;&#x539F;&#x7406;&#x4E3B;&#x8981;&#x662F;&#x5BF9;&#x9700;&#x8981;&#x88AB;&#x4EE3;&#x7406;&#x7684;&#x76EE;&#x6807;&#x7C7B;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x5B50;&#x7C7B;&#xFF0C;&#x901A;&#x8FC7;&#x65B9;&#x6CD5;&#x62E6;&#x622A;&#x6280;&#x672F;&#x62E6;&#x622A;&#x6240;&#x6709;&#x7236;&#x7C7B;&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#x3002;<br>CGLib&#x5B9E;&#x73B0;&#x9700;&#x8981;&#x5F15;&#x5165;&#x76F8;&#x5E94;&#x7684;jar&#x5305;&#xFF1A;<code>cglib-nodep-x.x.x.jar</code>&#x3002;<br>show the code&#xFF1A;<br>&#x88AB;&#x4EE3;&#x7406;&#x7C7B;&#xFF08;&#x4E0D;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x63A5;&#x53E3;&#xFF09;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RailwayStation</span> </span>{</span><br><span class="line">    <span class="comment">//&#x4E70;&#x7968;&#x65B9;&#x6CD5;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saleTicket</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="comment">//&#x968F;&#x673A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x4EF7;&#x683C;</span></span><br><span class="line">        <span class="keyword">int</span> price = <span class="keyword">new</span> Random().nextInt(<span class="number">100</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x4E00;&#x672C;&#x6B63;&#x7ECF;&#x7684;&#x5356;&#x7968;,&#x4EF7;&#x683C;:&quot;</span> + price + <span class="string">&quot;&#x5143;&quot;</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x4EE3;&#x7406;&#x7C7B;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;<code>MethodInterceptor</code>&#x63A5;&#x53E3;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxyAddChargeByCglib</span> <span class="keyword">implements</span> <span class="title">MethodInterceptor</span> </span>{</span><br><span class="line">    <span class="comment">//&#x4E3A;&#x88AB;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x4EE3;&#x7406;&#x7C7B;</span></span><br><span class="line">    <span class="keyword">private</span> Enhancer enhancer = <span class="keyword">new</span> Enhancer();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getProxy</span><span class="params">(Class clazz)</span> </span>{</span><br><span class="line">        <span class="comment">//&#x521B;&#x5EFA;&#x88AB;&#x4EE3;&#x7406;&#x7C7B;&#x7684;&#x5B50;&#x7C7B;</span></span><br><span class="line">        enhancer.setSuperclass(clazz);</span><br><span class="line">        enhancer.setCallback(<span class="keyword">this</span>);</span><br><span class="line">        <span class="keyword">return</span> enhancer.create();</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * &#x62E6;&#x622A;&#x6240;&#x6709;&#x88AB;&#x4EE3;&#x7406;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> o           &#x88AB;&#x4EE3;&#x7406;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;</span><br><span class="line">     * <span class="doctag">@param</span> method      &#x88AB;&#x4EE3;&#x7406;&#x7C7B;&#x65B9;&#x6CD5;&#x7684;&#x53CD;&#x5C04;&#x5BF9;&#x8C61;</span><br><span class="line">     * <span class="doctag">@param</span> objects     &#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;</span><br><span class="line">     * <span class="doctag">@param</span> methodProxy &#x4EE3;&#x7406;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;</span><br><span class="line">     * <span class="doctag">@return</span></span><br><span class="line">     * <span class="doctag">@throws</span> Throwable</span><br><span class="line">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">intercept</span><span class="params">(Object o, Method method, Object[] objects, MethodProxy methodProxy)</span> <span class="keyword">throws</span> Throwable </span>{</span><br><span class="line">        <span class="comment">//&#x4EE3;&#x7406;&#x7C7B;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;</span></span><br><span class="line">        methodProxy.invokeSuper(o, objects);</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x6536;&#x53D6;&#x4E86;&#x624B;&#x7EED;&#x8D39;5&#x5143;!&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x8C03;&#x7528;&#x6D4B;&#x8BD5;&#xFF1A;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        ProxyAddChargeByCglib proxy = <span class="keyword">new</span> ProxyAddChargeByCglib();</span><br><span class="line">        <span class="comment">//&#x83B7;&#x53D6;&#x52A8;&#x6001;&#x4EE3;&#x7406;</span></span><br><span class="line">        RailwayStation r = (RailwayStation) proxy.getProxy(RailwayStation.class);</span><br><span class="line">        r.saleTicket();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x8FD9;&#x6837;CGLib&#x5B9E;&#x73B0;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x5C31;&#x5B8C;&#x6210;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x76F8;&#x6BD4;JDK&#x7684;&#x65B9;&#x5F0F;&#xFF0C;CGLib&#x6700;&#x5927;&#x7684;&#x7F3A;&#x70B9;&#x597D;&#x50CF;&#x662F;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x5B9E;&#x73B0;&#x4EE3;&#x7406;&#x53E0;&#x52A0;&#xFF08;&#x591A;&#x7EA7;&#x4EE3;&#x7406;&#xFF09;&#xFF0C;&#x4E0D;&#x77E5;&#x9053;&#x6709;&#x6CA1;&#x5176;&#x5B83;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x65B9;&#x6CD5;&#xFF0C;&#x6B22;&#x8FCE;&#x7559;&#x8A00;~<br>&#x4F46;&#x662F;CGLIB&#x7684;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x6027;&#x80FD;&#x5F88;&#x9AD8;&#xFF0C;&#x4F46;&#x521B;&#x5EFA;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x7684;&#x6210;&#x672C;&#x9AD8;&#xFF0C;&#x6240;&#x4EE5;&#x6BD4;&#x8F83;&#x9002;&#x5408;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#x3002;<br>&#x53E6;&#x5916;&#x56E0;&#x4E3A;CGLib &#x7684;&#x672C;&#x8D28;&#x662F;&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x5B50;&#x7C7B;&#xFF0C;&#x6240;&#x4EE5;&#x5BF9;finall&#x4FEE;&#x9970;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x662F;&#x65E0;&#x6CD5;&#x4EE3;&#x7406;&#x7684;&#x3002;</p>
+<h2 id="&#x9002;&#x914D;&#x5668;&#x6A21;&#x5F0F;"><a href="#&#x9002;&#x914D;&#x5668;&#x6A21;&#x5F0F;" class="headerlink" title="&#x9002;&#x914D;&#x5668;&#x6A21;&#x5F0F;"></a>&#x9002;&#x914D;&#x5668;&#x6A21;&#x5F0F;</h2><h3 id="1-&#x4F55;&#x4E3A;&#x9002;&#x914D;&#x5668;&#x6A21;&#x5F0F;"><a href="#1-&#x4F55;&#x4E3A;&#x9002;&#x914D;&#x5668;&#x6A21;&#x5F0F;" class="headerlink" title="1 &#x4F55;&#x4E3A;&#x9002;&#x914D;&#x5668;&#x6A21;&#x5F0F;"></a>1 &#x4F55;&#x4E3A;&#x9002;&#x914D;&#x5668;&#x6A21;&#x5F0F;</h3><p>&#x9002;&#x914D;&#x5668;&#x6A21;&#x5F0F;&#xFF08;&#x6709;&#x65F6;&#x5019;&#x4E5F;&#x79F0;&#x5305;&#x88C5;&#x6837;&#x5F0F;&#x6216;&#x8005;&#x5305;&#x88C5;&#xFF09;&#x662F;&#x5C06;&#x4E00;&#x4E2A;&#x7C7B;&#x7684;&#x63A5;&#x53E3;&#x8F6C;&#x6362;&#x6210;&#x6210;&#x7528;&#x6237;&#x6240;&#x671F;&#x5F85;&#x7684;&#xFF0C;&#x4F7F;&#x5F97;&#x539F;&#x672C;&#x7531;&#x4E8E;&#x63A5;&#x53E3;&#x4E0D;&#x517C;&#x5BB9;&#x800C;&#x4E0D;&#x80FD;&#x5728;&#x4E00;&#x8D77;&#x5DE5;&#x4F5C;&#x7684;&#x7C7B;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x8D77;&#x5DE5;&#x4F5C;&#x3002;<br>&#x901A;&#x4FD7;&#x70B9;&#x8BF4;&#x89C1;&#x4EBA;&#x8BF4;&#x4EBA;&#x8BDD;&#xFF0C;&#x89C1;&#x9B3C;&#x8BF4;&#x9B3C;&#x8BDD;&#xFF0C;&#x6211;&#x4EEC;&#x7B14;&#x8BB0;&#x672C;&#x7684;&#x7535;&#x6E90;&#x9002;&#x914D;&#x5668;&#x5C31;&#x5C5E;&#x4E8E;&#x9002;&#x914D;&#x5668;&#x6A21;&#x5F0F;&#xFF0C;&#x56E0;&#x4E3A;&#x7B14;&#x8BB0;&#x672C;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x8DDF;&#x63D2;&#x5EA7;&#x8FDE;&#x8D77;&#x6765;&#x7528;&#xFF0C;&#x7535;&#x6E90;&#x9002;&#x914D;&#x5668;&#x5C31;&#x505A;&#x4E86;&#x8F6C;&#x6362;&#x7684;&#x4F5C;&#x7528;&#x3002;<br><img src="/2016/11/23/Java&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x7B2C;&#x4E8C;&#x5F39;&#x4E4B;&#x7ED3;&#x6784;&#x578B;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;/Adapter.jpg" alt="Adapter"><br>&#x7C7B;&#x56FE;&#x4E2D;&#xFF0C;Target&#x5C31;&#x662F;&#x901A;&#x7528;&#x76EE;&#x6807;&#x63A5;&#x53E3;&#xFF08;&#x5BB6;&#x7528;&#x63D2;&#x5EA7;&#xFF09;&#xFF0C;Adapter&#x662F;&#x9002;&#x914D;&#x5668;&#xFF08;&#x7535;&#x6E90;&#x9002;&#x914D;&#x5668;&#xFF09;&#xFF0C;Adaptee&#x5C5E;&#x4E8E;&#x88AB;&#x9002;&#x914D;&#x7C7B;&#xFF08;&#x7B14;&#x8BB0;&#x672C;&#x7535;&#x6E90;&#x63A5;&#x53E3;&#xFF09;&#x3002;<br><strong>&#x5F00;&#x53D1;&#x4E2D;&#x4F7F;&#x7528;&#x9002;&#x914D;&#x5668;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x7CFB;&#x7EDF;&#x529F;&#x80FD;&#x66F4;&#x597D;&#x7684;&#x590D;&#x7528;&#x548C;&#x62D3;&#x5C55;&#x6027;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x964D;&#x4F4E;&#x529F;&#x80FD;&#x95F4;&#x8026;&#x5408;&#x6027;&#xFF0C;&#x4F8B;&#x5982;&#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x4FEE;&#x6539;&#x65E7;&#x7C7B;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4F7F;&#x5176;&#x9002;&#x914D;&#x65B0;&#x7684;&#x7CFB;&#x7EDF;&#xFF0C;&#x8FD9;&#x6837;&#x65B0;&#x65E7;&#x7CFB;&#x7EDF;&#x90FD;&#x80FD;&#x4F7F;&#x7528;&#x3002;</strong><br><strong>&#x4F46;&#x4E0D;&#x5EFA;&#x8BAE;&#x7CFB;&#x7EDF;&#x4E2D;&#x8FC7;&#x591A;&#x4F7F;&#x7528;&#x9002;&#x914D;&#x5668;&#xFF0C;&#x56E0;&#x4E3A;&#x4F7F;&#x7528;&#x4E0D;&#x5F53;&#x4F1A;&#x9020;&#x6210;&#x7CFB;&#x7EDF;&#x96F6;&#x4E71;&#xFF0C;&#x4F8B;&#x5982;&#x660E;&#x660E;&#x770B;&#x5230;&#x8C03;&#x7528;&#x7684;&#x662F;A&#x63A5;&#x53E3;&#xFF0C;&#x5176;&#x5B9E;&#x5185;&#x90E8;&#x88AB;&#x9002;&#x914D;&#x6210;&#x4E86;B&#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;&#x3002;</strong><br>&#x9002;&#x914D;&#x5668;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x6709;&#x4E24;&#x79CD;&#xFF1A;&#x5BF9;&#x8C61;&#x9002;&#x914D;&#x5668;&#xFF08;&#x7EC4;&#x5408;&#x65B9;&#x5F0F;&#xFF09;&#x548C;&#x7C7B;&#x9002;&#x914D;&#x5668;&#xFF08;&#x7EE7;&#x627F;&#x65B9;&#x5F0F;&#xFF09;&#xFF0C;&#x6211;&#x4EEC;&#x5206;&#x522B;&#x6765;&#x770B;&#x4E00;&#x4E0B;&#x3002;</p>
+<h3 id="2-&#x5BF9;&#x8C61;&#x9002;&#x914D;&#x5668;"><a href="#2-&#x5BF9;&#x8C61;&#x9002;&#x914D;&#x5668;" class="headerlink" title="2 &#x5BF9;&#x8C61;&#x9002;&#x914D;&#x5668;"></a>2 &#x5BF9;&#x8C61;&#x9002;&#x914D;&#x5668;</h3><p>&#x5BF9;&#x8C61;&#x9002;&#x914D;&#x5668;&#x662F;&#x628A;&#x88AB;&#x9002;&#x914D;&#x7C7B;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7EC4;&#x5408;&#x5230;&#x9002;&#x914D;&#x5668;&#x7C7B;&#x4E2D;&#xFF0C;&#x4EE5;&#x4FEE;&#x6539;&#x76EE;&#x6807;&#x63A5;&#x53E3;&#xFF0C;&#x5305;&#x88C5;&#x88AB;&#x9002;&#x914D;&#x7C7B;&#x3002;show the cod&#xFF1A;<br>Adaptee&#x88AB;&#x9002;&#x914D;&#x7C7B;&#xFF0C;&#x7B14;&#x8BB0;&#x672C;&#x5145;&#x7535;&#x53E3;&#xFF1A;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ChargeJack</span> </span>{</span><br><span class="line">    <span class="comment">//&#x5145;&#x7535;&#x65B9;&#x6CD5; &#x6BD4;&#x5982;&#x53EA;&#x80FD;&#x63A5;&#x53D7;&#x8F93;&#x5165;20V</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">charge</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x6B63;&#x5728;&#x8FDB;&#x884C;20V&#x7535;&#x6D41;&#x5145;&#x7535;&quot;</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>Target&#x76EE;&#x6807;&#x7C7B;&#xFF0C;&#x901A;&#x7528;&#x7684;220&#x63D2;&#x5934;&#xFF1A;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Socket</span> </span>{</span><br><span class="line">    <span class="comment">//&#x8F93;&#x51FA;&#x7535;&#x6D41;,&#x8F93;&#x5165;220V</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">output</span><span class="params">()</span></span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>Adapter&#x9002;&#x914D;&#x5668;&#xFF0C;&#x7535;&#x6E90;&#x8F6C;&#x6362;&#xFF1A;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Adapter</span> <span class="keyword">implements</span> <span class="title">Socket</span> </span>{</span><br><span class="line">    <span class="comment">//&#x901A;&#x8FC7;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5C06;&#x88AB;&#x9002;&#x914D;&#x5BF9;&#x8C61;&#x6CE8;&#x5165;</span></span><br><span class="line">    <span class="keyword">private</span> ChargeJack chargeJack;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Adapter</span><span class="params">(ChargeJack chargeJack)</span> </span>{</span><br><span class="line">        <span class="keyword">this</span>.chargeJack = chargeJack;</span><br><span class="line">    }</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">output</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">&quot;&#x901A;&#x8FC7;&#x7535;&#x6E90;&#x9002;&#x914D;&#x5668;&quot;</span>);</span><br><span class="line">        <span class="comment">//&#x4F7F;&#x7528;&#x88AB;&#x9002;&#x914D;&#x5BF9;&#x8C61;&#x65B9;&#x6CD5;</span></span><br><span class="line">        chargeJack.charge();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x8C03;&#x7528;&#xFF1A;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Notebook</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        ChargeJack chargeJack = <span class="keyword">new</span> ChargeJack();</span><br><span class="line">        Socket socket = <span class="keyword">new</span> Adapter(chargeJack);</span><br><span class="line">        socket.output();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-&#x7C7B;&#x9002;&#x914D;&#x5668;"><a href="#3-&#x7C7B;&#x9002;&#x914D;&#x5668;" class="headerlink" title="3 &#x7C7B;&#x9002;&#x914D;&#x5668;"></a>3 &#x7C7B;&#x9002;&#x914D;&#x5668;</h3><p>&#x7C7B;&#x9002;&#x914D;&#x5668;&#x662F;&#x91C7;&#x7528;&#x7EE7;&#x627F;&#x7684;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#xFF0C;&#x901A;&#x8FC7;&#x591A;&#x91CD;&#x7EE7;&#x627F;&#x4E0D;&#x517C;&#x5BB9;&#x63A5;&#x53E3;&#xFF0C;&#x5B9E;&#x73B0;&#x5BF9;&#x76EE;&#x6807;&#x63A5;&#x53E3;&#x7684;&#x9002;&#x914D;&#x3002;&#x56E0;&#x4E3A;Java&#x4E0D;&#x652F;&#x6301;&#x591A;&#x7EE7;&#x627F;&#xFF0C;&#x6240;&#x4EE5;&#x4E00;&#x822C;&#x5355;&#x72EC;&#x4E3A;&#x67D0;&#x4E2A;&#x7C7B;&#x9002;&#x914D;&#x3002;show the code&#xFF1A;<br>&#x5C06;&#x4E0A;&#x9762;&#x7684;&#x9002;&#x914D;&#x5668;&#x4FEE;&#x6539;&#x4E3A;&#xFF1A;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AdapterExtends</span> <span class="keyword">extends</span> <span class="title">ChargeJack</span> <span class="keyword">implements</span> <span class="title">Socket</span>  </span>{</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">output</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.print(<span class="string">&quot;&#x901A;&#x8FC7;&#x7535;&#x6E90;&#x9002;&#x914D;&#x5668;&quot;</span>);</span><br><span class="line">        <span class="keyword">this</span>.charge();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x8C03;&#x7528;&#xFF1A;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Notebook</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        Socket socket = <span class="keyword">new</span> AdapterExtends();</span><br><span class="line">        socket1.output();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>Demo &#x4EE3;&#x7801;&#x5730;&#x5740;&#xFF1A;<a href="https://github.com/jueduizone/PatternStudyDemo" target="_blank" rel="external">Github</a></p>
+<p><strong>End</strong></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/23/Java设计模式第二弹之结构型设计模式/" class="archive-article-date">
+  	<time datetime="2016-11-23T07:38:36.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-23</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/11/16/Java设计模式第一弹创之创建型模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java设计模式第一弹创之创建型模式</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Java设计模式第二弹之结构型设计模式" data-title="Java设计模式第二弹之结构型模式" data-url="http://todoright.com/2016/11/23/Java设计模式第二弹之结构型设计模式/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"todoright"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 JamieXu
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Java网络编程/" style="font-size: 10px;">Java网络编程</a> <a href="/tags/Jenkins/" style="font-size: 13.33px;">Jenkins</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/linux/" style="font-size: 13.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/ngrok/" style="font-size: 10px;">ngrok</a> <a href="/tags/技术/" style="font-size: 20px;">技术</a> <a href="/tags/自动化持续集成/" style="font-size: 10px;">自动化持续集成</a> <a href="/tags/设计模式/" style="font-size: 13.33px;">设计模式</a>
+    			</div>
+    	</section>
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;span style=&quot;text-align:center&quot;&gt;Me? &lt;br&gt;长得像70后的90后,创业中...&lt;br&gt;爱读书,爱数码&lt;br&gt;创业公司技术打杂&lt;br&gt;向全栈目标路线打怪升级中...&lt;br&gt;&lt;/span&gt;</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
