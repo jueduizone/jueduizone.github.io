@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://todoright.com">
+  <title>Java操作XML文件（写） | 看我六级跳大</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Java&amp;#x64CD;&amp;#x4F5C;XML&amp;#x6587;&amp;#x4EF6;&amp;#xFF08;&amp;#x5199;&amp;#xFF09;1  &amp;#x6982;&amp;#x8FF0;&amp;#x540C;XML&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x8BFB;&amp;#x53D6;&amp;#x4E00;&amp;#x6837;&amp;#xFF0C;&amp;#x751F;&amp;#x6210;&amp;#x6216;&amp;#x5199;&amp;#x5165;XML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java操作XML文件（写）">
+<meta property="og:url" content="http://todoright.com/2016/11/24/Java操作XML文件（写）/index.html">
+<meta property="og:site_name" content="看我六级跳大">
+<meta property="og:description" content="Java&amp;#x64CD;&amp;#x4F5C;XML&amp;#x6587;&amp;#x4EF6;&amp;#xFF08;&amp;#x5199;&amp;#xFF09;1  &amp;#x6982;&amp;#x8FF0;&amp;#x540C;XML&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x8BFB;&amp;#x53D6;&amp;#x4E00;&amp;#x6837;&amp;#xFF0C;&amp;#x751F;&amp;#x6210;&amp;#x6216;&amp;#x5199;&amp;#x5165;XML">
+<meta property="og:updated_time" content="2016-11-24T08:41:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java操作XML文件（写）">
+<meta name="twitter:description" content="Java&amp;#x64CD;&amp;#x4F5C;XML&amp;#x6587;&amp;#x4EF6;&amp;#xFF08;&amp;#x5199;&amp;#xFF09;1  &amp;#x6982;&amp;#x8FF0;&amp;#x540C;XML&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x8BFB;&amp;#x53D6;&amp;#x4E00;&amp;#x6837;&amp;#xFF0C;&amp;#x751F;&amp;#x6210;&amp;#x6216;&amp;#x5199;&amp;#x5165;XML">
+  
+    <link rel="alternative" href="/atom.xml" title="看我六级跳大" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/headico.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">JamieXu</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">但行好事，莫问前程</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/photos">相册</a></li>
+	        
+				<li><a href="/tags/技术/">技术</a></li>
+	        
+				<li><a href="/tags/小心思/">小心思</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/jueduizone" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="http://weibo.com/kelexu" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">JamieXu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/img/headico.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">JamieXu</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">但行好事，莫问前程</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/photos">相册</a></li>
+		        
+					<li><a href="/tags/技术/">技术</a></li>
+		        
+					<li><a href="/tags/小心思/">小心思</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/jueduizone" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/kelexu" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Java操作XML文件（写）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java操作XML文件（写）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java&#x64CD;&#x4F5C;XML&#x6587;&#x4EF6;&#xFF08;&#x5199;&#xFF09;"><a href="#Java&#x64CD;&#x4F5C;XML&#x6587;&#x4EF6;&#xFF08;&#x5199;&#xFF09;" class="headerlink" title="Java&#x64CD;&#x4F5C;XML&#x6587;&#x4EF6;&#xFF08;&#x5199;&#xFF09;"></a>Java&#x64CD;&#x4F5C;XML&#x6587;&#x4EF6;&#xFF08;&#x5199;&#xFF09;</h1><h2 id="1-&#x6982;&#x8FF0;"><a href="#1-&#x6982;&#x8FF0;" class="headerlink" title="1  &#x6982;&#x8FF0;"></a>1  &#x6982;&#x8FF0;</h2><p>&#x540C;XML&#x6587;&#x4EF6;&#x7684;&#x8BFB;&#x53D6;&#x4E00;&#x6837;&#xFF0C;&#x751F;&#x6210;&#x6216;&#x5199;&#x5165;XML&#x6587;&#x4EF6;&#x4E5F;&#x6709;&#x56DB;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x5206;&#x522B;&#x4E3A;DOM&#xFF0C;SAX&#xFF0C;DOM4J&#x548C;JDOM&#xFF0C;&#x5176;&#x4E2D;&#x524D;&#x4E24;&#x79CD;&#x4E3A;&#x5B98;&#x65B9;&#xFF0C;&#x540E;&#x4E24;&#x79CD;&#x7B2C;&#x4E09;&#x65B9;API&#xFF0C;&#x9700;&#x8981;&#x76F8;&#x5E94;jar&#x5305;&#xFF0C;&#x5176;&#x5B83;&#x8BE6;&#x89C1;<a href="./Java&#x64CD;&#x4F5C;XML&#x6587;&#x4EF6;&#xFF08;&#x8BFB;&#xFF09;">Java&#x64CD;&#x4F5C;XML&#x6587;&#x4EF6;&#xFF08;&#x8BFB;&#xFF09;</a>&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#xFF0C;&#x8FD9;&#x91CC;&#x4E0D;&#x662F;&#x7D2F;&#x8FF0;&#x3002;<a id="more"></a></p>
+<h2 id="2-DOM&#x65B9;&#x5F0F;&#x751F;&#x6210;"><a href="#2-DOM&#x65B9;&#x5F0F;&#x751F;&#x6210;" class="headerlink" title="2  DOM&#x65B9;&#x5F0F;&#x751F;&#x6210;"></a>2  DOM&#x65B9;&#x5F0F;&#x751F;&#x6210;</h2><p>DOM&#x65B9;&#x5F0F;&#x7684;&#x751F;&#x6210;&#x662F;&#x57FA;&#x4E8E;&#x6811;&#xFF08;tree&#xFF09;&#x7ED3;&#x6784;&#xFF0C;&#x9996;&#x5148;&#x751F;&#x6210;&#x6811;&#xFF08;root&#xFF09;&#x8282;&#x70B9;&#xFF0C;&#x751F;&#x6210;&#x7684;DOM&#x6811;&#x4F1A;&#x9A7B;&#x7559;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#xFF0C;&#x8FD9;&#x6837;&#x4F18;&#x70B9;&#x662F;&#x65B9;&#x4FBF;&#x968F;&#x65F6;&#x589E;&#x5220;&#x6539;&#xFF0C;&#x6240;&#x4EE5;&#x5982;&#x679C;XML&#x9700;&#x8981;&#x9891;&#x7E41;&#x7684;&#x4FEE;&#x6539;&#xFF0C;&#x63A8;&#x8350;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x3002;&#x5177;&#x4F53;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.jamie.writer;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> javax.xml.parsers.DocumentBuilder;</span><br><span class="line"><span class="keyword">import</span> javax.xml.parsers.DocumentBuilderFactory;</span><br><span class="line"><span class="keyword">import</span> javax.xml.parsers.ParserConfigurationException;</span><br><span class="line"><span class="keyword">import</span> javax.xml.transform.OutputKeys;</span><br><span class="line"><span class="keyword">import</span> javax.xml.transform.Transformer;</span><br><span class="line"><span class="keyword">import</span> javax.xml.transform.TransformerConfigurationException;</span><br><span class="line"><span class="keyword">import</span> javax.xml.transform.TransformerException;</span><br><span class="line"><span class="keyword">import</span> javax.xml.transform.TransformerFactory;</span><br><span class="line"><span class="keyword">import</span> javax.xml.transform.dom.DOMSource;</span><br><span class="line"><span class="keyword">import</span> javax.xml.transform.stream.StreamResult;</span><br><span class="line"><span class="keyword">import</span> org.w3c.dom.Document;</span><br><span class="line"><span class="keyword">import</span> org.w3c.dom.Element;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DomWriter</span> </span>{</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">	 <span class="comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;DocumentBuilderFactory&#x5BF9;&#x8C61;</span></span><br><span class="line">	 DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();</span><br><span class="line">	 <span class="comment">// &#x521B;&#x5EFA;DocumentBuilder&#x5BF9;&#x8C61;</span></span><br><span class="line">	 <span class="keyword">try</span> {</span><br><span class="line">		 DocumentBuilder db = dbf.newDocumentBuilder();</span><br><span class="line">		 <span class="comment">// &#x83B7;&#x5F97;&#x4E00;&#x4E2A;Document&#x5BF9;&#x8C61;&#xFF0C;&#x5199;&#x5165;xml&#x7ED3;&#x6784;</span></span><br><span class="line">		 Document document = db.newDocument();</span><br><span class="line">		 <span class="comment">// &#x53BB;&#x6389;standalone&#x5C5E;&#x6027;</span></span><br><span class="line">		 document.setXmlStandalone(<span class="keyword">true</span>);</span><br><span class="line">		 <span class="comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6839;&#x8282;&#x70B9;</span></span><br><span class="line">		 Element classElement = document.createElement(<span class="string">&quot;class&quot;</span>);</span><br><span class="line">		 <span class="comment">// &#x751F;&#x4EA7;&#x6839;&#x8282;&#x70B9;&#x4E0B;&#x7684;&#x5B50;&#x8282;&#x70B9;&#xFF0C;&#x5E76;&#x6DFB;&#x52A0;&#x5C5E;&#x6027;</span></span><br><span class="line">		 Element personElement = document.createElement(<span class="string">&quot;person&quot;</span>);</span><br><span class="line">		 personElement.setAttribute(<span class="string">&quot;id&quot;</span>, <span class="string">&quot;1&quot;</span>);</span><br><span class="line">		 <span class="comment">// &#x6DFB;&#x52A0;name &#x6807;&#x7B7E;&#xFF0C;&#x5E76;&#x8D4B;&#x503C;</span></span><br><span class="line">		 Element nameElement = document.createElement(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">		 nameElement.setTextContent(<span class="string">&quot;&#x5C0F;&#x660E;&quot;</span>);</span><br><span class="line">		 personElement.appendChild(nameElement);</span><br><span class="line">		 <span class="comment">// &#x5C06;&#x5B50;&#x8282;&#x70B9;person&#x6DFB;&#x52A0;&#x5230;&#x6839;&#x8282;&#x70B9;class</span></span><br><span class="line">		 classElement.appendChild(personElement);</span><br><span class="line">		 <span class="comment">// &#x5C06;&#x6839;&#x8282;&#x70B9;&#x6DFB;&#x52A0;&#x5230;document&#xFF0C;&#x751F;&#x4EA7;&#x4E00;&#x4E2A;dom&#x6811;</span></span><br><span class="line">		 document.appendChild(classElement);</span><br><span class="line"></span><br><span class="line">		 <span class="comment">// &#x521B;&#x5EFA;xml&#x6587;&#x4EF6;&#xFF0C;&#x9700;&#x8981;&#x4E00;&#x4E2A;TransformerFactory&#x5BF9;&#x8C61;</span></span><br><span class="line">		 TransformerFactory tff = TransformerFactory.newInstance();</span><br><span class="line">		 <span class="keyword">try</span> {</span><br><span class="line">			 <span class="comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;Transformer&#x5BF9;&#x8C61;</span></span><br><span class="line">			 Transformer tf = tff.newTransformer();</span><br><span class="line">			 tf.setOutputProperty(OutputKeys.INDENT, <span class="string">&quot;yes&quot;</span>);</span><br><span class="line">			 tf.transform(<span class="keyword">new</span> DOMSource(document), <span class="keyword">new</span> StreamResult(</span><br><span class="line">					 <span class="keyword">new</span> File(<span class="string">&quot;clsss.xml&quot;</span>)));</span><br><span class="line">		 } <span class="keyword">catch</span> (TransformerConfigurationException e) {</span><br><span class="line">			 <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			 e.printStackTrace();</span><br><span class="line">		 } <span class="keyword">catch</span> (TransformerException e) {</span><br><span class="line">			 <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			 e.printStackTrace();</span><br><span class="line">		 }</span><br><span class="line">	 } <span class="keyword">catch</span> (ParserConfigurationException e) {</span><br><span class="line">		 e.printStackTrace();</span><br><span class="line">	 }</span><br><span class="line"></span><br><span class="line"> }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h2 id="3-SAX&#x65B9;&#x5F0F;&#x751F;&#x6210;"><a href="#3-SAX&#x65B9;&#x5F0F;&#x751F;&#x6210;" class="headerlink" title="3  SAX&#x65B9;&#x5F0F;&#x751F;&#x6210;"></a>3  SAX&#x65B9;&#x5F0F;&#x751F;&#x6210;</h2><p>SAX&#x65B9;&#x5F0F;&#x751F;&#x6210;XML&#x662F;&#x57FA;&#x4E8E;&#x4E8B;&#x4EF6;&#x6A21;&#x578B;&#x7684;&#xFF0C;&#x5F53;&#x628A;&#x67D0;&#x4E00;&#x6807;&#x7B7E;&#x8D70;&#x5B8C;&#x540E;&#xFF0C;&#x4E0D;&#x80FD;&#x8D70;&#x56DE;&#x5934;&#x8DEF;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x6CA1;&#x6709;&#x72B6;&#x6001;&#x6027;&#x53EF;&#x8A00;&#xFF0C;&#x5373;&#x65E0;&#x6CD5;&#x8FD4;&#x56DE;&#x4FEE;&#x6539;&#x67D0;&#x4E00;&#x5B8C;&#x6210;&#x7684;&#x6807;&#x7B7E;&#xFF0C;&#x4F46;&#x662F;SAX&#x7684;&#x6548;&#x7387;&#x5F88;&#x9AD8;&#x3002;&#x5177;&#x4F53;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.jamie.writer;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;	 </span><br><span class="line"><span class="keyword">import</span> javax.xml.transform.OutputKeys;</span><br><span class="line"><span class="keyword">import</span> javax.xml.transform.Result;</span><br><span class="line"><span class="keyword">import</span> javax.xml.transform.Transformer;</span><br><span class="line"><span class="keyword">import</span> javax.xml.transform.TransformerConfigurationException;</span><br><span class="line"><span class="keyword">import</span> javax.xml.transform.sax.SAXTransformerFactory;</span><br><span class="line"><span class="keyword">import</span> javax.xml.transform.sax.TransformerHandler;</span><br><span class="line"><span class="keyword">import</span> javax.xml.transform.stream.StreamResult;</span><br><span class="line"><span class="keyword">import</span> org.xml.sax.SAXException;</span><br><span class="line"><span class="keyword">import</span> org.xml.sax.helpers.AttributesImpl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SaxWrite</span> </span>{</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">	 <span class="comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;SAXTransformerFactory</span></span><br><span class="line">	 SAXTransformerFactory stff = (SAXTransformerFactory) SAXTransformerFactory</span><br><span class="line">			 .newInstance();</span><br><span class="line">	 <span class="keyword">try</span> {</span><br><span class="line">		 <span class="comment">// &#x83B7;&#x53D6;TransformerHandler&#x5BF9;&#x8C61;</span></span><br><span class="line">		 TransformerHandler handler = stff.newTransformerHandler();</span><br><span class="line">		 <span class="comment">// &#x901A;&#x8FC7;handler&#x521B;&#x5EFA;Transformers&#x5BF9;&#x8C61;</span></span><br><span class="line">		 Transformer former = handler.getTransformer();</span><br><span class="line">		 <span class="comment">// &#x901A;&#x8FC7;Transformer&#x5BF9;&#x8C61;&#x5BF9;&#x751F;&#x6210;&#x7684;xml&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;</span></span><br><span class="line">		 former.setOutputProperty(OutputKeys.INDENT, <span class="string">&quot;yes&quot;</span>);</span><br><span class="line">		 former.setOutputProperty(OutputKeys.ENCODING, <span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line">		 <span class="comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;result&#x5BF9;&#x8C61;&#xFF0C;&#x7528;&#x4E8E;&#x8FDB;&#x884C;&#x6587;&#x4EF6;&#x7684;&#x521B;&#x5EFA;&#x548C;&#x6587;&#x4EF6;&#x8F93;&#x51FA;&#x6D41;&#x7684;&#x7F16;&#x5199;,&#x5E76;&#x4F7F;&#x5176;&#x4E0E;handler&#x5BF9;&#x8C61;&#x5173;&#x8054;</span></span><br><span class="line">		 File f = <span class="keyword">new</span> File(<span class="string">&quot;sax.xml&quot;</span>);</span><br><span class="line">		 <span class="keyword">if</span> (!f.exists()) {</span><br><span class="line">			 f.createNewFile();</span><br><span class="line">		 }</span><br><span class="line">		 Result rs = <span class="keyword">new</span> StreamResult(<span class="keyword">new</span> FileOutputStream(f));</span><br><span class="line">		 handler.setResult(rs);</span><br><span class="line">		 <span class="comment">// &#x5229;&#x7528;handler&#x5BF9;&#x8C61;&#x8FDB;&#x884C;xml&#x5185;&#x5BB9;&#x7684;&#x7F16;&#x5199;</span></span><br><span class="line">		 <span class="comment">// &#x6253;&#x5F00;doument</span></span><br><span class="line">		 handler.startDocument();</span><br><span class="line">		 <span class="comment">// &#x521B;&#x5EFA;Attribute&#x5BF9;&#x8C61;&#xFF0C;&#x7528;&#x6237;&#x91CD;&#x590D;&#x5229;&#x7528;</span></span><br><span class="line">		 AttributesImpl attrs = <span class="keyword">new</span> AttributesImpl();</span><br><span class="line">		 handler.startElement(<span class="string">&quot;&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;class&quot;</span>, attrs);</span><br><span class="line">		 attrs.clear();</span><br><span class="line">		 attrs.addAttribute(<span class="string">&quot;&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;id&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;1&quot;</span>);</span><br><span class="line">		 <span class="comment">// &#x521B;&#x5EFA;person&#x6807;&#x7B7E;</span></span><br><span class="line">		 handler.startElement(<span class="string">&quot;&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;person&quot;</span>, attrs);</span><br><span class="line">		 attrs.clear();</span><br><span class="line">		 <span class="comment">// &#x521B;&#x5EFA;name&#x6807;&#x7B7E;</span></span><br><span class="line">		 handler.startElement(<span class="string">&quot;&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;name&quot;</span>, attrs);</span><br><span class="line">		 String name = <span class="string">&quot;&#x5C0F;&#x660E;&quot;</span>;</span><br><span class="line">		 handler.characters(name.toCharArray(), <span class="number">0</span>, name.length());</span><br><span class="line">		 handler.endElement(<span class="string">&quot;&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;name&quot;</span>);</span><br><span class="line">		 handler.endElement(<span class="string">&quot;&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;person&quot;</span>);</span><br><span class="line">		 handler.endElement(<span class="string">&quot;&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;class&quot;</span>);</span><br><span class="line">		 <span class="comment">// &#x5173;&#x95ED;document</span></span><br><span class="line">		 handler.endDocument();</span><br><span class="line">	 } <span class="keyword">catch</span> (TransformerConfigurationException e) {</span><br><span class="line">		 <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">		 e.printStackTrace();</span><br><span class="line">	 } <span class="keyword">catch</span> (FileNotFoundException e) {</span><br><span class="line">		 <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">		 e.printStackTrace();</span><br><span class="line">	 } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">		 <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">		 e.printStackTrace();</span><br><span class="line">	 } <span class="keyword">catch</span> (SAXException e) {</span><br><span class="line">		 <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">		 e.printStackTrace();</span><br><span class="line">	 }</span><br><span class="line"> }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h2 id="4-DOM4J&#x65B9;&#x5F0F;&#x751F;&#x6210;"><a href="#4-DOM4J&#x65B9;&#x5F0F;&#x751F;&#x6210;" class="headerlink" title="4  DOM4J&#x65B9;&#x5F0F;&#x751F;&#x6210;"></a>4  DOM4J&#x65B9;&#x5F0F;&#x751F;&#x6210;</h2><p>DOM4J&#x662F;&#x57FA;&#x4E8E;&#x5E95;&#x5C42;API&#xFF08;&#x4E5F;&#x5C31;&#x662F;&#x5B98;&#x65B9;&#x7684;&#x63D0;&#x4F9B;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;DOM&#x548C;SAX&#xFF09;&#x7684;&#x4E00;&#x79CD;&#x751F;&#x6210;&#x65B9;&#x5F0F;&#xFF0C;&#x6548;&#x7387;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#x4EC5;&#x6B21;&#x4E8E;SAX&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x529F;&#x80FD;&#x548C;&#x4F7F;&#x7528;&#x7684;&#x4FBF;&#x6377;&#x65B9;&#x9762;&#x90FD;&#x5F88;&#x5F3A;&#x5927;&#xFF0C;&#x6240;&#x4EE5;&#x4E5F;&#x662F;&#x73B0;&#x5B9E;&#x5F00;&#x53D1;&#x4E2D;&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#x7684;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x3002;&#x5177;&#x4F53;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF0C;&#x522B;&#x5FD8;&#x4E86;&#x5F15;&#x5165;&#x76F8;&#x5E94;&#x7684;jar:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.jamie.writer;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.*;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.io.OutputFormat;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.io.XMLWriter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dom4jWriter</span> </span>{</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">	 <span class="comment">// &#x8C03;&#x7528;&#x751F;&#x6210;&#x65B9;&#x6CD5;</span></span><br><span class="line">	 Dom4jWriter dom4j = <span class="keyword">new</span> Dom4jWriter();</span><br><span class="line">	 dom4j.createXml();</span><br><span class="line"> }</span><br><span class="line"> <span class="comment">/**</span><br><span class="line">  **  &#x751F;&#x6210;&#x65B9;&#x6CD5;</span><br><span class="line">  */</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createXml</span><span class="params">()</span> </span>{</span><br><span class="line">	 <span class="comment">// &#x4F7F;&#x7528;DocumentHelper&#x521B;&#x5EFA;Document&#x5BF9;&#x8C61;&#xFF0C;&#x5373;&#x6574;&#x4E2A;xml&#x6587;&#x6863;</span></span><br><span class="line">	 Document document = DocumentHelper.createDocument();</span><br><span class="line">	 <span class="comment">// &#x521B;&#x5EFA;&#x6839;&#x8282;&#x70B9;class &#x53CA;&#x76F8;&#x5E94;&#x7684;&#x8282;&#x70B9;&#xFF0C;&#x6CE8;&#x610F;addElement&#x65B9;&#x6CD5;&#x7684;&#x4F9D;&#x5C5E;&#x5173;&#x7CFB;</span></span><br><span class="line">	 Element classEle = document.addElement(<span class="string">&quot;class&quot;</span>);</span><br><span class="line">	 Element personEle = classEle.addElement(<span class="string">&quot;person&quot;</span>);</span><br><span class="line">	 Element nameEle = personEle.addElement(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">	 personEle.addAttribute(<span class="string">&quot;id&quot;</span>, <span class="string">&quot;1&quot;</span>);</span><br><span class="line">	 nameEle.setText(<span class="string">&quot;&#x5C0F;&#x660E;&quot;</span>);</span><br><span class="line">	 <span class="comment">// &#x8BBE;&#x7F6E;&#x751F;&#x6210;xml&#x5185;&#x5BB9;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x6362;&#x884C;</span></span><br><span class="line">	 OutputFormat of = OutputFormat.createPrettyPrint();</span><br><span class="line">	 System.out.println(document.asXML());</span><br><span class="line">	 <span class="comment">// &#x8BBE;&#x7F6E;&#x7F16;&#x7801;</span></span><br><span class="line">	 of.setEncoding(<span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">	 File fileWriter;</span><br><span class="line">	 <span class="keyword">try</span> {</span><br><span class="line">		 <span class="comment">// &#x521B;&#x5EFA;&#x6587;&#x4EF6;</span></span><br><span class="line">		 fileWriter = <span class="keyword">new</span> File(<span class="string">&quot;dom4j.xml&quot;</span>);</span><br><span class="line">		 <span class="comment">// dom4j&#x63D0;&#x4F9B;&#x7684;&#x4E13;&#x95E8;&#x7684;&#x6587;&#x4EF6;&#x5199;&#x5165;&#x5BF9;&#x8C61;XMLWriter</span></span><br><span class="line">		 XMLWriter xmlWriter = <span class="keyword">new</span> XMLWriter(</span><br><span class="line">				 <span class="keyword">new</span> FileOutputStream(fileWriter), of);</span><br><span class="line">		 xmlWriter.write(document);</span><br><span class="line">		 xmlWriter.flush();</span><br><span class="line">		 xmlWriter.close();</span><br><span class="line">	 } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">		 e.printStackTrace();</span><br><span class="line">	 }</span><br><span class="line"> }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h2 id="5-JDOM&#x65B9;&#x5F0F;&#x751F;&#x6210;"><a href="#5-JDOM&#x65B9;&#x5F0F;&#x751F;&#x6210;" class="headerlink" title="5  JDOM&#x65B9;&#x5F0F;&#x751F;&#x6210;"></a>5  JDOM&#x65B9;&#x5F0F;&#x751F;&#x6210;</h2><p>&#x4E0E;DOM4J&#x7C7B;&#x4F3C;JDOM&#x4E5F;&#x662F;&#x4E00;&#x79CD;&#x7B2C;&#x4E09;&#x65B9;&#x7684;&#x57FA;&#x4E8E;&#x5E95;&#x5C42;API&#x65B9;&#x5F0F;&#x7684;&#x4E00;&#x79CD;&#x64CD;&#x4F5C;XML&#x6587;&#x4EF6;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x5B83;&#x57FA;&#x4E8E;&#x6811;&#x578B;&#x7ED3;&#x6784;&#xFF0C;&#x5229;&#x7528;&#x7EAF;JAVA&#x7684;&#x6280;&#x672F;&#x5BF9;XML&#x6587;&#x6863;&#x5B9E;&#x73B0;&#x89E3;&#x6790;&#x3001;&#x751F;&#x6210;&#x3001;&#x5E8F;&#x5217;&#x5316;&#x4EE5;&#x53CA;&#x591A;&#x79CD;&#x64CD;&#x4F5C;&#x3002;&#x4E0E;&#x5176;&#x5B83;&#x65B9;&#x5F0F;&#x76F8;&#x6BD4;&#xFF0C;&#x5B83;&#x4F7F;&#x7528;&#x8D77;&#x6765;&#x66F4;&#x4FBF;&#x6377;&#xFF0C;&#x4F46;&#x662F;&#x6548;&#x7387;&#x8F83;&#x4F4E;&#xFF0C;&#x5EFA;&#x8BAE;&#x5728;&#x5C0F;&#x6587;&#x6863;&#x60C5;&#x51B5;&#x4E0B;&#x4F7F;&#x7528;&#x3002;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.jamie.writer;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStreamWriter;</span><br><span class="line"><span class="keyword">import</span> org.jdom2.Document;</span><br><span class="line"><span class="keyword">import</span> org.jdom2.Element;</span><br><span class="line"><span class="keyword">import</span> org.jdom2.output.Format;</span><br><span class="line"><span class="keyword">import</span> org.jdom2.output.XMLOutputter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JdomWriter</span> </span>{</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">	 JdomWriter jd = <span class="keyword">new</span> JdomWriter();</span><br><span class="line">	 jd.createXml();</span><br><span class="line"> }</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createXml</span><span class="params">()</span> </span>{</span><br><span class="line">	 <span class="comment">// &#x521B;&#x5EFA;&#x6839;&#x8282;&#x70B9;</span></span><br><span class="line">	 Element root = <span class="keyword">new</span> Element(<span class="string">&quot;class&quot;</span>);</span><br><span class="line">	 <span class="comment">// &#x751F;&#x6210;&#x4E00;&#x4E2A;document&#x5BF9;&#x8C61;</span></span><br><span class="line">	 Document document = <span class="keyword">new</span> Document(root);</span><br><span class="line">	 <span class="comment">// &#x521B;&#x5EFA;person&#x8282;&#x70B9;</span></span><br><span class="line">	 Element person = <span class="keyword">new</span> Element(<span class="string">&quot;person&quot;</span>);</span><br><span class="line">	 person.setAttribute(<span class="string">&quot;id&quot;</span>, <span class="string">&quot;1&quot;</span>);</span><br><span class="line">	 root.addContent(person);</span><br><span class="line">	 <span class="comment">// &#x521B;&#x5EFA;nam&#x8282;&#x70B9;</span></span><br><span class="line">	 Element name = <span class="keyword">new</span> Element(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">	 name.setText(<span class="string">&quot;&#x5C0F;&#x660E;&quot;</span>);</span><br><span class="line">	 person.addContent(name);</span><br><span class="line">	 <span class="comment">// &#x5BF9;xml&#x8FDB;&#x884C;&#x6392;&#x7248;&#x683C;&#x5F0F;&#x5316;,&#x4E24;&#x79CD;&#x65B9;&#x5F0F;</span></span><br><span class="line">	 Format format = Format.getPrettyFormat();</span><br><span class="line">	 <span class="comment">/*</span><br><span class="line">	  ** Format format =Format.getCompactFormat(); format.setIndent(&quot;&quot;);</span><br><span class="line">	  */</span></span><br><span class="line">	 <span class="comment">// &#x521B;&#x5EFA;XMLOutputter&#x5BF9;&#x8C61;</span></span><br><span class="line">	 XMLOutputter out = <span class="keyword">new</span> XMLOutputter(format);</span><br><span class="line">	 <span class="comment">// &#x4F7F;&#x7528;XMLOutputter&#x5BF9;&#x8C61;&#x5C06;Document&#x5BF9;&#x8C61;&#x8F6C;&#x6210;xml&#x6587;&#x6863;</span></span><br><span class="line">	 <span class="keyword">try</span> {</span><br><span class="line">		 out.output(document, <span class="keyword">new</span> FileOutputStream(<span class="keyword">new</span> File(<span class="string">&quot;jdom.xml&quot;</span>)));</span><br><span class="line">	 } <span class="keyword">catch</span> (FileNotFoundException e) {</span><br><span class="line">		 e.printStackTrace();</span><br><span class="line">	 } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">		 e.printStackTrace();</span><br><span class="line">	 }</span><br><span class="line"> }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h2 id="6-&#x603B;&#x7ED3;"><a href="#6-&#x603B;&#x7ED3;" class="headerlink" title="6 &#x603B;&#x7ED3;"></a>6 &#x603B;&#x7ED3;</h2><p>&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x751F;&#x6210;&#x7684;xml&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x90FD;&#x5E94;&#x8BE5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">class</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">person</span> <span class="attr">id</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">name</span>&gt;</span>&#x5C0F;&#x660E;<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">person</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">class</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>&#x4F8B;&#x5B50;&#x90FD;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x4F46;&#x662F;&#x5E38;&#x7528;&#x7684;&#x6D89;&#x53CA;&#x5230;&#x4E86;&#xFF0C;&#x51E0;&#x79CD;&#x65B9;&#x6CD5;&#x4E2D;&#x6700;&#x5E38;&#x7528;&#x7684;&#x8FD8;&#x662F;&#x5C5E;&#x4E8E;DOM4J&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x73B0;&#x5728;&#x5F88;&#x591A;&#x6846;&#x67B6;&#x4E2D;&#x4E5F;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x3002;<br>&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x90FD;&#x662F;&#x81EA;&#x5DF1;&#x4E00;&#x4E2A;&#x4E2A;&#x6572;&#x7684;&#xFF0C;&#x4E00;&#x662F;&#x8BA9;&#x81EA;&#x5DF1;&#x52A0;&#x6DF1;&#x5B66;&#x4E60;&#x5370;&#x8C61;&#xFF0C;&#x4E8C;&#x662F;&#x5982;&#x679C;&#x53EF;&#x4EE5;&#x4E5F;&#x7ED9;&#x9700;&#x8981;&#x7684;&#x4EBA;&#x505A;&#x4E00;&#x4E2A;&#x53C2;&#x8003;&#x3002;&#x56E0;&#x4E3A;&#x81EA;&#x5DF1;&#x8FD8;&#x5728;&#x521D;&#x7EA7;&#x5B66;&#x4E60;&#x9636;&#x6BB5;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x5E0C;&#x671B;&#x6709;&#x5FC3;&#x4EBA;&#x6307;&#x51FA;&#xFF0C;&#x76F8;&#x4E92;&#x4EA4;&#x6D41;&#x5B66;&#x4E60;&#xFF0C;&#x8C22;&#x8C22;&#xFF01;</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/24/Java操作XML文件（写）/" class="archive-article-date">
+  	<time datetime="2016-11-24T08:36:56.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-24</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xml读写/">xml读写</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/11/24/Java操作XML文件（读）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java操作XML文件（读）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Java操作XML文件（写）" data-title="Java操作XML文件（写）" data-url="http://todoright.com/2016/11/24/Java操作XML文件（写）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"todoright"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 JamieXu
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Java网络编程/" style="font-size: 10px;">Java网络编程</a> <a href="/tags/Jenkins/" style="font-size: 13.33px;">Jenkins</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/java/" style="font-size: 13.33px;">java</a> <a href="/tags/linux/" style="font-size: 13.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/ngrok/" style="font-size: 10px;">ngrok</a> <a href="/tags/xml读写/" style="font-size: 13.33px;">xml读写</a> <a href="/tags/技术/" style="font-size: 20px;">技术</a> <a href="/tags/自动化持续集成/" style="font-size: 10px;">自动化持续集成</a> <a href="/tags/设计模式/" style="font-size: 13.33px;">设计模式</a>
+    			</div>
+    	</section>
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;span style=&quot;text-align:center&quot;&gt;Me? &lt;br&gt;长得像70后的90后,创业中...&lt;br&gt;爱读书,爱数码&lt;br&gt;创业公司技术打杂&lt;br&gt;向全栈目标路线打怪升级中...&lt;br&gt;&lt;/span&gt;</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
