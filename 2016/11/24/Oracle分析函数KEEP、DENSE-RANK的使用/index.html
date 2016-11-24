@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://todoright.com">
+  <title>Oracle分析函数KEEP、DENSE_RANK的使用 | 看我六级跳大</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#x6700;&amp;#x8FD1;&amp;#x5728;&amp;#x5DE5;&amp;#x4F5C;&amp;#x4E2D;&amp;#xFF0C;&amp;#x78B0;&amp;#x5230;&amp;#x4E00;&amp;#x4E2A;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x540E;&amp;#x6765;&amp;#x5728;&amp;#x5904;&amp;#x7406;&amp;#x8FC7;&amp;#x7A0B;&amp;#x4E2D;&amp;#x63A5;&amp;#x89E6;&amp;#x5230;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle分析函数KEEP、DENSE_RANK的使用">
+<meta property="og:url" content="http://todoright.com/2016/11/24/Oracle分析函数KEEP、DENSE-RANK的使用/index.html">
+<meta property="og:site_name" content="看我六级跳大">
+<meta property="og:description" content="&amp;#x6700;&amp;#x8FD1;&amp;#x5728;&amp;#x5DE5;&amp;#x4F5C;&amp;#x4E2D;&amp;#xFF0C;&amp;#x78B0;&amp;#x5230;&amp;#x4E00;&amp;#x4E2A;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x540E;&amp;#x6765;&amp;#x5728;&amp;#x5904;&amp;#x7406;&amp;#x8FC7;&amp;#x7A0B;&amp;#x4E2D;&amp;#x63A5;&amp;#x89E6;&amp;#x5230;">
+<meta property="og:updated_time" content="2016-11-24T08:53:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Oracle分析函数KEEP、DENSE_RANK的使用">
+<meta name="twitter:description" content="&amp;#x6700;&amp;#x8FD1;&amp;#x5728;&amp;#x5DE5;&amp;#x4F5C;&amp;#x4E2D;&amp;#xFF0C;&amp;#x78B0;&amp;#x5230;&amp;#x4E00;&amp;#x4E2A;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x540E;&amp;#x6765;&amp;#x5728;&amp;#x5904;&amp;#x7406;&amp;#x8FC7;&amp;#x7A0B;&amp;#x4E2D;&amp;#x63A5;&amp;#x89E6;&amp;#x5230;">
+  
+    <link rel="alternative" href="/atom.xml" title="看我六级跳大" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/headico.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">JamieXu</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">但行好事，莫问前程</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/photos">相册</a></li>
+	        
+				<li><a href="/tags/技术/">技术</a></li>
+	        
+				<li><a href="/tags/小心思/">小心思</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/jueduizone" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="http://weibo.com/kelexu" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">JamieXu</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/img/headico.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">JamieXu</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">但行好事，莫问前程</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/photos">相册</a></li>
+		        
+					<li><a href="/tags/技术/">技术</a></li>
+		        
+					<li><a href="/tags/小心思/">小心思</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/jueduizone" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/kelexu" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Oracle分析函数KEEP、DENSE-RANK的使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Oracle分析函数KEEP、DENSE_RANK的使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#x6700;&#x8FD1;&#x5728;&#x5DE5;&#x4F5C;&#x4E2D;&#xFF0C;&#x78B0;&#x5230;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x540E;&#x6765;&#x5728;&#x5904;&#x7406;&#x8FC7;&#x7A0B;&#x4E2D;&#x63A5;&#x89E6;&#x5230;&#x4E86;<code>KEEP</code>&#xFF0C;<code>DENSE_RANK</code>&#x5206;&#x6790;&#x51FD;&#x6570;&#xFF0C;&#x95EE;&#x9898;&#x77AC;&#x95F4;&#x88AB;&#x7B80;&#x5355;&#x7684;&#x89E3;&#x51B3;&#xFF0C;&#x5426;&#x5219;&#x6309;&#x7167;&#x5E38;&#x89C4;&#x5199;&#x6CD5;&#xFF0C;&#x80AF;&#x5B9A;&#x4F1A;&#x5199;&#x51FA;&#x5D4C;&#x5957;&#x8BED;&#x53E5;&#xFF0C;&#x4F46;&#x662F;&#x7F51;&#x4E0A;&#x5BF9;&#x8FD9;&#x4E2A;&#x65B9;&#x9762;&#x7684;&#x4ECB;&#x7ECD;&#x6BD4;&#x8F83;&#x5C11;&#xFF0C;&#x73B0;&#x5728;&#x7279;&#x6574;&#x7406;&#x4E86;&#x4E00;&#x4E0B;&#xFF1A;<br>&#x4ECE;&#x76EE;&#x524D;&#x67E5;&#x5230;&#x7684;&#x6765;&#x770B;&#xFF1A;<code>DENSE_RANK</code>&#x662F;&#x548C;<code>KEEP</code>&#x7ED3;&#x5408;&#x4F7F;&#x7528;&#x7684;&#xFF0C;&#x7F51;&#x4E0A;&#x7ED9;&#x51FA;&#x7684;&#x89E3;&#x91CA;&#x662F;<code>Returns the row ranked first using DENSE_RANK</code>&#x3002;&#x6211;&#x7684;&#x7406;&#x89E3;&#x662F;&#x8FD4;&#x56DE; DENSE_RANK&#x51FD;&#x6570;&#x7684;&#x7B2C;&#x4E00;&#x7ED3;&#x679C;&#x3002;&#x4E00;&#x822C;&#x5199;&#x6CD5;&#x662F;<code>MIN [ MAX ] (A) KEEP(DENSE_RANK FIRST [ LAST ] ORDER BY B)</code>&#xFF0C;&#x8FD9;&#x91CC;&#x5F15;&#x7528;&#x522B;&#x4EBA;&#x8BF4;&#x7684;&#x660E;&#x7684;&#x89E3;&#x91CA;&#x4E00;&#x4E0B;&#xFF1A;<a id="more"></a></p>
+<blockquote>
+<p><strong><code>DENSE_RANK</code></strong><br>&#x529F;&#x80FD;&#x63CF;&#x8FF0;&#xFF1A;&#x6839;&#x636E;ORDER BY&#x5B50;&#x53E5;&#x4E2D;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x503C;&#xFF0C;&#x4ECE;&#x67E5;&#x8BE2;&#x8FD4;&#x56DE;&#x7684;&#x6BCF;&#x4E00;&#x884C;&#xFF0C;&#x8BA1;&#x7B97;&#x5B83;&#x4EEC;&#x4E0E;&#x5176;&#x5B83;&#x884C;&#x7684;&#x76F8;&#x5BF9;&#x4F4D;&#x7F6E;&#x3002;&#x7EC4;&#x5185;&#x7684;&#x6570;&#x636E;&#x6309;ORDER BY&#x5B50;&#x53E5;&#x6392;&#x5E8F;&#xFF0C;&#x7136;&#x540E;&#x7ED9;&#x6BCF;&#x4E00;&#x884C;&#x8D4B;&#x4E00;&#x4E2A;&#x53F7;&#xFF0C;&#x4ECE;&#x800C;&#x5F62;&#x6210;&#x4E00;&#x4E2A;&#x5E8F;&#x5217;&#xFF0C;&#x8BE5;&#x5E8F;&#x5217;&#x4ECE;1&#x5F00;&#x59CB;&#xFF0C;&#x5F80;&#x540E;&#x7D2F;&#x52A0;&#x3002;&#x6BCF;&#x6B21;ORDER BY&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x503C;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x65F6;&#xFF0C;&#x8BE5;&#x5E8F;&#x5217;&#x4E5F;&#x968F;&#x4E4B;&#x589E;&#x52A0;&#x3002;&#x6709;&#x540C;&#x6837;&#x503C;&#x7684;&#x884C;&#x5F97;&#x5230;&#x540C;&#x6837;&#x7684;&#x6570;&#x5B57;&#x5E8F;&#x53F7;&#xFF08;&#x8BA4;&#x4E3A;null&#x65F6;&#x76F8;&#x7B49;&#x7684;&#xFF09;&#x3002;&#x5BC6;&#x96C6;&#x7684;&#x5E8F;&#x5217;&#x8FD4;&#x56DE;&#x7684;&#x65F6;&#x6CA1;&#x6709;&#x95F4;&#x9694;&#x7684;&#x6570;&#x3002;</p>
+<p><strong><code>FIRST</code></strong><br>&#x529F;&#x80FD;&#x63CF;&#x8FF0;&#xFF1A;&#x4ECE;DENSE_RANK&#x8FD4;&#x56DE;&#x7684;&#x96C6;&#x5408;&#x4E2D;&#x53D6;&#x51FA;&#x6392;&#x5728;&#x6700;&#x524D;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x503C;&#x7684;&#x884C;&#xFF08;&#x53EF;&#x80FD;&#x591A;&#x884C;&#xFF0C;&#x56E0;&#x4E3A;&#x503C;&#x53EF;&#x80FD;&#x76F8;&#x7B49;&#xFF09;&#xFF0C;&#x56E0;&#x6B64;&#x5B8C;&#x6574;&#x7684;&#x8BED;&#x6CD5;&#x9700;&#x8981;&#x5728;&#x5F00;&#x59CB;&#x5904;&#x52A0;&#x4E0A;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x51FD;&#x6570;&#x4EE5;&#x4ECE;&#x4E2D;&#x53D6;&#x51FA;&#x8BB0;&#x5F55;&#x3002;</p>
+<p><strong><code>LAST</code></strong><br>&#x529F;&#x80FD;&#x63CF;&#x8FF0;&#xFF1A;&#x4ECE;DENSE_RANK&#x8FD4;&#x56DE;&#x7684;&#x96C6;&#x5408;&#x4E2D;&#x53D6;&#x51FA;&#x6392;&#x5728;&#x6700;&#x540E;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x503C;&#x7684;&#x884C;&#xFF08;&#x53EF;&#x80FD;&#x591A;&#x884C;&#xFF0C;&#x56E0;&#x4E3A;&#x503C;&#x53EF;&#x80FD;&#x76F8;&#x7B49;&#xFF09;&#xFF0C;&#x56E0;&#x6B64;&#x5B8C;&#x6574;&#x7684;&#x8BED;&#x6CD5;&#x9700;&#x8981;&#x5728;&#x5F00;&#x59CB;&#x5904;&#x52A0;&#x4E0A;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x51FD;&#x6570;&#x4EE5;&#x4ECE;&#x4E2D;&#x53D6;&#x51FA;&#x8BB0;&#x5F55;&#x3002;</p>
+</blockquote>
+<p>&#x6240;&#x4EE5;&#x9ED8;&#x8BA4;&#x6392;&#x5E8F;&#x4E0B;&#xFF0C;<code>FIRST</code>&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x662F;&#x53D6;&#x5C0F;&#x503C;&#xFF0C;<code>LAST</code>&#x53D6;&#x5927;&#x503C;&#x3002;&#x800C;&#x524D;&#x9762;&#x7684;MIN&#x6216;&#x8005;MAX&#x5219;&#x662F;&#x5728;KEEP&#x7684;&#x7ED3;&#x679C;&#x96C6;&#x4E2D;&#x53D6;&#x67D0;&#x4E00;&#x5B57;&#x6BB5;&#x7684;&#x6700;&#x5927;&#x503C;&#x6216;&#x6700;&#x5C0F;&#x503C;&#x3002;<br>&#x8BED;&#x6587;&#x6CA1;&#x5B66;&#x597D;&#x53EF;&#x601C;&#x4E0A;&#x9762;&#x7684;&#x53EF;&#x80FD;&#x6CA1;&#x8BF4;&#x6E05;&#x695A;&#xFF0C;&#x800C;&#x4E14;&#x7F51;&#x4E0A;&#x7684;&#x76F8;&#x5173;&#x7684;&#x8D44;&#x6599;&#x4E5F;&#x5C11;&#xFF0C;&#x6240;&#x4EE5;&#x6700;&#x540E;&#x7ED9;&#x5927;&#x5BB6;&#x770B;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;SQL&#x8BED;&#x53E5;&#x5E76;&#x89E3;&#x91CA;&#x4E00;&#x4E0B;&#x4F5C;&#x7528;&#xFF0C;&#x5927;&#x5BB6;&#x81EA;&#x5DF1;&#x7406;&#x89E3;&#x4E00;&#x4E0B;&#x5427;&#x2026;.<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ZGH,  </span><br><span class="line">       <span class="keyword">MIN</span>(WM) <span class="keyword">KEEP</span>(<span class="keyword">DENSE_RANK</span> <span class="keyword">FIRST</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> WM),  </span><br><span class="line">       <span class="keyword">MIN</span>(RQ) <span class="keyword">KEEP</span>(<span class="keyword">DENSE_RANK</span> <span class="keyword">FIRST</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> WM)  </span><br><span class="line">  <span class="keyword">FROM</span> T_JZG  </span><br><span class="line"> <span class="keyword">GROUP</span> <span class="keyword">BY</span> ZGH</span><br></pre></td></tr></table></figure></p>
+<p>&#x8868;&#x7ED3;&#x6784;&#x5927;&#x6982;&#x5982;&#x4E0B;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ZGH         |       WM   |       RQ</span><br><span class="line">A           |       1    |       20130101</span><br><span class="line">A           |       2    |       20140102</span><br><span class="line">A           |       1    |       20120102</span><br><span class="line">B           |       3    |       20131001</span><br><span class="line">B           |       2    |       20140102</span><br><span class="line">B           |       3    |       20121004</span><br></pre></td></tr></table></figure></p>
+<p>&#x5176;&#x4E2D;&#x76F8;&#x540C;ZGH&#x5BF9;&#x5E94;&#x7684;&#x5B57;&#x6BB5;WM&#x3001;RQ&#x503C;&#x53EF;&#x80FD;&#x6709;&#x591A;&#x6761;&#xFF0C;&#x8981;&#x6C42;&#x4ECE;&#x4E2D;&#x53D6;&#x51FA;WM&#x503C;&#x6700;&#x5C0F;&#x7684;&#x90A3;&#x4E00;&#x6761;&#xFF0C;&#x4F46;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x591A;&#x6761;&#xFF0C;&#x8FD9;&#x65F6;&#x8981;&#x53D6;&#x51FA;&#x5176;&#x4E2D;RQ&#x6700;&#x5C0F;&#x7684;&#x90A3;&#x4E00;&#x6761;&#xFF0C;&#x4EE5;&#x4E0A;&#x8BED;&#x53E5;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x3002;<br>&#x6700;&#x540E;&#x53D6;&#x51FA;&#x7684;&#x503C;&#x5E94;&#x8BE5;&#x662F;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ZGH         |       WM     |       RQ</span><br><span class="line">A           |       1      |       20120102</span><br><span class="line">B           |       2      |       20140102</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/24/Oracle分析函数KEEP、DENSE-RANK的使用/" class="archive-article-date">
+  	<time datetime="2016-11-24T08:49:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-24</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DENSE-RANK/">DENSE_RANK</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/KEEP/">KEEP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/11/24/MySQL-5-6版本-Linux下内存占用过高的解决办法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          MySQL 5.6版本 Linux下内存占用过高的解决办法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/24/Java操作XML文件（写）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java操作XML文件（写）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Oracle分析函数KEEP、DENSE-RANK的使用" data-title="Oracle分析函数KEEP、DENSE_RANK的使用" data-url="http://todoright.com/2016/11/24/Oracle分析函数KEEP、DENSE-RANK的使用/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"todoright"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 JamieXu
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/DENSE-RANK/" style="font-size: 10px;">DENSE_RANK</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Java网络编程/" style="font-size: 10px;">Java网络编程</a> <a href="/tags/Jenkins/" style="font-size: 13.33px;">Jenkins</a> <a href="/tags/KEEP/" style="font-size: 10px;">KEEP</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/java/" style="font-size: 13.33px;">java</a> <a href="/tags/linux/" style="font-size: 13.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/ngrok/" style="font-size: 10px;">ngrok</a> <a href="/tags/xml读写/" style="font-size: 13.33px;">xml读写</a> <a href="/tags/技术/" style="font-size: 20px;">技术</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/数据库优化/" style="font-size: 10px;">数据库优化</a> <a href="/tags/自动化持续集成/" style="font-size: 10px;">自动化持续集成</a> <a href="/tags/设计模式/" style="font-size: 13.33px;">设计模式</a>
+    			</div>
+    	</section>
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;span style=&quot;text-align:center&quot;&gt;Me? &lt;br&gt;长得像70后的90后,创业中...&lt;br&gt;爱读书,爱数码&lt;br&gt;创业公司技术打杂&lt;br&gt;向全栈目标路线打怪升级中...&lt;br&gt;&lt;/span&gt;</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
