@@ -24,21 +24,22 @@
   
     <link rel="icon" href="/favicon.ico">
   
-  <link rel="stylesheet" href="/main.css">
+  <link rel="stylesheet" href="/main.css?v=4.0.0.css">
+  
+
   
 
 </head>
 
 <body>
-  <div id="container">
-    <div class="left-col">
+  <div id="container" q-class="show:isCtnShow">
+    <canvas id="anm-canvas" class="anm-canvas"></canvas>
+    <div class="left-col" q-class="show:isShow">
       <div class="overlay"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			
 			<img src="/img/headico.jpg" class="js-avatar">
-			
 		</a>
 
 		<hgroup>
@@ -66,19 +67,19 @@
 	        
     		
     			
-    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			<a data-idx="0" q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
     			
     			
             
     			
-    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			<a data-idx="1" q-on="click: openSlider(e, 'tagcloud')" href="javascript:void(0)">标签</a>
     			
     			
             
     			
             
     			
-    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">关于我</a>
+    			<a data-idx="2" q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
     			
             
@@ -86,11 +87,11 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://github.com/jueduizone" title="github">github</a>
+					<a class="github" target="_blank" href="https://github.com/jueduizone" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="http://weibo.com/kelexu" title="weibo">weibo</a>
+					<a class="weibo" target="_blank" href="http://weibo.com/kelexu" title="weibo"><i class="icon-weibo"></i></a>
 		        
-					<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
 			</div>
 		</nav>
@@ -98,18 +99,16 @@
 </div>
 
     </div>
-    <div class="mid-col">
+    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       <nav id="mobile-nav">
   	<div class="overlay">
-  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<div class="slider-trigger"><i class="icon-sort"></i></div>
   		<h1 class="header-author js-mobile-header hide">JamieXu</h1>
   	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				
-					<img src="/img/headico.jpg" class="js-avatar">
-				
+				<img src="/img/headico.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author">JamieXu</h1>
@@ -128,16 +127,19 @@
 		        
 					<li><a href="/tags/小心思/">小心思</a></li>
 		        
+		        
+		        	<li><a href="/archives/">所有文章</a></li>
+		        
 				</ul>
 			</nav>
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/jueduizone" title="github">github</a>
+						<a class="github" target="_blank" href="https://github.com/jueduizone" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="http://weibo.com/kelexu" title="weibo">weibo</a>
+						<a class="weibo" target="_blank" href="http://weibo.com/kelexu" title="weibo"><i class="icon-weibo"></i></a>
 			        
-						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
 				</div>
 			</nav>
@@ -145,12 +147,14 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
-        <article id="post-Oracle分析函数KEEP、DENSE-RANK的使用" class="article article-type-post" itemscope itemprop="blogPost">
+      <div id="wrapper" class="body-wrap">
+        <div class="menu-l">
+          <div class="canvas-wrap">
+            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+          </div>
+          <div id="js-content" class="content-ll">
+            <article id="post-Oracle分析函数KEEP、DENSE-RANK的使用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
     
       <header class="article-header">
         
@@ -160,6 +164,9 @@
     </h1>
   
 
+        <a href="/2016/11/24/Oracle分析函数KEEP、DENSE-RANK的使用/" class="archive-article-date">
+  	<time datetime="2016-11-24T08:49:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-24</time>
+</a>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
@@ -175,12 +182,11 @@
 <p>&#x5176;&#x4E2D;&#x76F8;&#x540C;ZGH&#x5BF9;&#x5E94;&#x7684;&#x5B57;&#x6BB5;WM&#x3001;RQ&#x503C;&#x53EF;&#x80FD;&#x6709;&#x591A;&#x6761;&#xFF0C;&#x8981;&#x6C42;&#x4ECE;&#x4E2D;&#x53D6;&#x51FA;WM&#x503C;&#x6700;&#x5C0F;&#x7684;&#x90A3;&#x4E00;&#x6761;&#xFF0C;&#x4F46;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x591A;&#x6761;&#xFF0C;&#x8FD9;&#x65F6;&#x8981;&#x53D6;&#x51FA;&#x5176;&#x4E2D;RQ&#x6700;&#x5C0F;&#x7684;&#x90A3;&#x4E00;&#x6761;&#xFF0C;&#x4EE5;&#x4E0A;&#x8BED;&#x53E5;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x3002;<br>&#x6700;&#x540E;&#x53D6;&#x51FA;&#x7684;&#x503C;&#x5E94;&#x8BE5;&#x662F;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ZGH         |       WM     |       RQ</span><br><span class="line">A           |       1      |       20120102</span><br><span class="line">B           |       2      |       20140102</span><br></pre></td></tr></table></figure></p>
 
       
+
+      
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/11/24/Oracle分析函数KEEP、DENSE-RANK的使用/" class="archive-article-date">
-  	<time datetime="2016-11-24T08:49:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-24</time>
-</a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
@@ -189,6 +195,60 @@
 
       
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://todoright.com/2016/11/24/Oracle分析函数KEEP、DENSE-RANK的使用/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
       <div class="clearfix"></div>
     </div>
   </div>
@@ -213,27 +273,6 @@
     </a>
   
 </nav>
-
-
-
-
-<div class="share_jia">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">Share to: &nbsp; </span>
-		<a class="jiathis_button_facebook"></a> 
-	    <a class="jiathis_button_twitter"></a>
-	    <a class="jiathis_button_plus"></a> 
-	    <a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
 
 
 
@@ -263,6 +302,8 @@
 
 
 
+          </div>
+        </div>
       </div>
       <footer id="footer">
   <div class="outer">
@@ -279,9 +320,7 @@
     </div>
     <script>
 	var yiliaConfig = {
-		fancybox: true,
 		mathjax: false,
-		animate: true,
 		isHome: false,
 		isPost: true,
 		isArchive: false,
@@ -293,41 +332,153 @@
 	}
 </script>
 
-<script src="/./main.js"></script>
+<script src="/./main.js?v=4.0.0.js"></script>
 
 
     
-<div class="tools-col">
-  <ul class="btn-wrap">
-    
-      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
-    
-    
-      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
-    
-    
-    
-      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
-    
-  </ul>
+<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
   <div class="tools-wrap">
     
-    	<section class="tools-section tools-section-all chose">
+    	<section class="tools-section tools-section-all" q-show="innerArchive">
+        <div class="search-wrap">
+          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
+          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
+          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
+        </div>
+        <div class="widget tagcloud search-tag">
+          <p class="search-tag-wording">tag:</p>
+          <label class="search-switch">
+            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
+          </label>
+          <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">IO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">ngrok</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">xml读写</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">Jenkins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">自动化持续集成</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">Java网络编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">KEEP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">DENSE_RANK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">Oracle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">数据库优化</a>
+              </li>
+            
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+        <ul class="search-ul">
+          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+            缺失模块。<br/>1、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            2、在根目录_config.yml里添加配置：
+<pre style="font-size: 12px;" q-show="jsonFail">
+  jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: true
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
+</pre>
+          </p>
+          <li class="search-li" q-repeat="items" q-show="isShow">
+            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
+            <p class="search-time">
+              <i class="icon-calendar icon"></i>
+              <span q-text="date|dateformat"></span>
+            </p>
+            <p class="search-tag">
+              <i class="icon-price-tags icon"></i>
+              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
+            </p>
+          </li>
+        </ul>
     	</section>
     
 
     
-    	<section class="tools-section tools-section-tag">
-    			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/DENSE-RANK/" style="font-size: 10px;">DENSE_RANK</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Java网络编程/" style="font-size: 10px;">Java网络编程</a> <a href="/tags/Jenkins/" style="font-size: 13.33px;">Jenkins</a> <a href="/tags/KEEP/" style="font-size: 10px;">KEEP</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/java/" style="font-size: 13.33px;">java</a> <a href="/tags/linux/" style="font-size: 13.33px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/ngrok/" style="font-size: 10px;">ngrok</a> <a href="/tags/xml读写/" style="font-size: 13.33px;">xml读写</a> <a href="/tags/技术/" style="font-size: 20px;">技术</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/数据库优化/" style="font-size: 10px;">数据库优化</a> <a href="/tags/自动化持续集成/" style="font-size: 10px;">自动化持续集成</a> <a href="/tags/设计模式/" style="font-size: 13.33px;">设计模式</a>
-    			</div>
-    	</section>
-    
 
     
-
-    
-    	<section class="tools-section tools-section-me">
+    	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
   	  		<div class="aboutme-wrap" id="js-aboutme">&lt;span style=&quot;text-align:center&quot;&gt;Me? &lt;br&gt;长得像70后的90后,创业中...&lt;br&gt;爱读书,爱数码&lt;br&gt;创业公司技术打杂&lt;br&gt;向全栈目标路线打怪升级中...&lt;br&gt;&lt;/span&gt;</div>
   	  	
